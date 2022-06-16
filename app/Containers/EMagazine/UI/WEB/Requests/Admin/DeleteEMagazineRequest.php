@@ -37,7 +37,6 @@ class DeleteEMagazineRequest extends Request
     public function rules()
     {
         return [
-            'id' => ['required', 'exists:'.EMagazine::getTableName().',id']
         ];
     }
 

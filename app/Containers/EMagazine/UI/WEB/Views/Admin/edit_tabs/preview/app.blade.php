@@ -26,27 +26,42 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tiêu đề</label>
+                        <div class="input-group">
+                            <textarea v-bind:name="['module['+ module.key +'][title]']" v-model="module.title" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
                     <div>
                         <p>Ảnh Chính </p>
-                        <input v-bind:name="['module['+ module.key +'][image]']"
-                            @change="chageImage(module, 'image' ,$event)" v-bind:id="[module.key + 'image' ]"
+                        <input type="hidden" 
+                            v-model="module.image"
+                            v-bind:name="['module['+ module.key +'][image]']" />
+                        <input 
+                            accept="image/png, image/jpeg, image/jpg" 
                             type="file" class="form-control" style="display: none"
-                            accept="image/png, image/jpeg, image/jpg" />
-                        <img class="w-50 pointer" v-bind:src="module.image"
-                            @click="triggerFile(module, 'image')" v-if="module.image" />
-                        <input type="hidden" v-model="module.old.image"
-                            v-bind:name="['module['+ module.key +'][old][image]']" />
+                            v-bind:id="[module.key + 'imageLink' ]"
+                            v-bind:name="['module['+ module.key +'][image]']"
+                            @change="chageImage(module, 'imageLink' ,$event)" 
+                        />
+                        <img class="w-50 pointer" v-bind:src="module.imageLink"
+                            @click="triggerFile(module, 'imageLink')" v-if="module.imageLink" />
+                        
                     </div>
                     <div>
                         <p>Ảnh Phụ</p>
-                        <input v-bind:name="['module['+ module.key +'][image_bg]']"
-                            @change="chageImage(module, 'image_bg' ,$event)" v-bind:id="[module.key + 'image_bg' ]"
-                            type="file" class="form-control" style="display: none"
-                            accept="image/png, image/jpeg, image/jpg" />
-                        <img class="w-50 pointer" v-bind:src="module.image_bg"
-                            @click="triggerFile(module, 'image_bg')" v-if="module.image_bg" />
                         <input type="hidden" v-model="module.old.image_bg"
                             v-bind:name="['module['+ module.key +'][old][image_bg]']" />
+                        <input 
+                            accept="image/png, image/jpeg, image/jpg" 
+                            type="file" class="form-control" style="display: none"
+                            v-bind:name="['module['+ module.key +'][image_bg]']"
+                            v-bind:id="[module.key + 'image_bgLink' ]"
+                            @change="chageImage(module, 'image_bgLink' ,$event)" 
+                        />
+                        <img class="w-50 pointer" v-bind:src="module.image_bgLink"
+                            @click="triggerFile(module, 'image_bgLink')" v-if="module.image_bgLink" />
+                        
                     </div>
                 </div>
                 <div class="modal-footer">

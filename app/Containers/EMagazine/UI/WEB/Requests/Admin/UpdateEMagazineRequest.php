@@ -39,9 +39,6 @@ class UpdateEMagazineRequest extends Request
     {
         return [
             'emagazine_description.*.title' => ['required', 'string'],
-            'image' => ['nullable', 'mimes:jpg,png,jpeg'],
-            'banner' => ['nullable', 'mimes:jpg,png,jpeg'],
-            'image_seo' => ['nullable', 'mimes:jpg,png,jpeg']
         ];
     }
 

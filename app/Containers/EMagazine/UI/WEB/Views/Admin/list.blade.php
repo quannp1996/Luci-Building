@@ -21,10 +21,7 @@
                                 <thead>
                                     <tr>
                                         <th width="55">ID</th>
-                                        <th width="450">Tiêu đề</th>
-                                        <th>Hình ảnh</th>
-                                        <th>Tác giả</th>
-                                        <th class="text-center">Danh Mục</th>
+                                        <th width="100">Tiêu đề</th>
                                         <th width="100">Ngày tạo</th>
                                         <th width="100">Lệnh</th>
                                     </tr>
@@ -32,28 +29,12 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
-                                            <td align="center">{{ $item->id }}</td>
+                                            <td>{{ $item->id }}</td>
                                             <td>
                                                 {{ @$item->desc->title }} &nbsp;
-                                                @if (@$item->is_hot)
-                                                    <span><i class="fa fa-fire text-danger" aria-hidden="true"
-                                                            title="Đây là bài viết hot"></i></span>
-                                                @endif
                                             </td>
-                                            <td align="center">
-                                                <img src="{{ $item->getImageUrl('small2', 'image') }}" />
-                                            </td>
+                                            <td>{!! $item->created_at ? $item->created_at->format('d/m/Y H:i') : '---' !!}</td>
                                             <td>
-                                                <p>Bài viết: <strong>{{ $item->author_name }}</strong></p>
-                                                <p>Hình ảnh: <strong>{{ $item->author_image }}</strong></p>
-                                                <p>Video: <strong>{{ $item->author_video }}</strong></p>
-                                                <p>Thiết kế: <strong>{{ $item->designer }}</strong></p>
-                                            </td>
-                                            <td class="text-center">
-                                                {{ $item->cate_desc->name }}
-                                            </td>
-                                            <td align="center">{!! $item->created_at ? $item->created_at->format('d/m/Y H:i') : '---' !!}</td>
-                                            <td align="center">
                                                 @if ($item->status == 2)
                                                     <a href="javascript:void(0)" class="btn text-primary"
                                                         data-href="{{ route('admin_emagazine_disable', $item->id) }}"

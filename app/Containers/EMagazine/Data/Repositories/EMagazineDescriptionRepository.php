@@ -18,7 +18,7 @@ class EMagazineDescriptionRepository extends Repository
         // ...
     ];
 
-    public function syncDescription(array $data, int $id = 0)
+    public function syncDescription(array $data,  $id)
     {
         try{
             $languageKey = array_keys($data);
@@ -31,8 +31,6 @@ class EMagazineDescriptionRepository extends Repository
                 $this->insert($data);
             }
         }catch(\Exception $e){
-            dd($e->getMessage());
         }
-        
     }
 }

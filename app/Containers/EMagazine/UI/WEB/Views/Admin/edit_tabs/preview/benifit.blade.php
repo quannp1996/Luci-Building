@@ -33,7 +33,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Items</label>
                         <button type="button" @click="addItem(module)" class="btn btn-success btn-sm">
                             <i class="fa fa-plus"></i>
                             Thêm
@@ -52,23 +51,28 @@
                                     <tr v-for="(item, index) in module.items">
                                         <td>
                                             <input type="text" class="form-control"
+                                                v-model="item.title"
                                                 v-bind:name="['module['+ module.key +'][items][' + index + '][title]']"
+                                                id="">
+                                            <input type="hidden" class="form-control"
+                                                v-model="item.key"
+                                                v-bind:name="['module['+ module.key +'][items][' + index + '][key]']"
                                                 id="">
                                         </td>
                                         <td>
-                                            <textarea v-bind:name="['module['+ module.key +'][title][' + index + '][descrption]']" v-model="item.descrption"
+                                            <textarea v-bind:name="['module['+ module.key +'][items][' + index + '][descrption]']" v-model="item.descrption"
                                                 class="form-control" rows="3"></textarea>
                                         </td>
                                         <td>
-                                            <input type="hidden" v-model="module.old.mainImage"
+                                            <input type="hidden" v-model="item.image"
                                                 v-bind:name="['module['+ module.key +'][items][' + index + '][image]']" />
                                             <input v-bind:name="['module['+ module.key +'][items][' + index + '][image]']"
-                                                @change="chageImage(item, 'image' ,$event)"
-                                                v-bind:id="[item.key + 'mainImage' ]" type="file"
+                                                @change="chageImage(item, 'imageLink' ,$event)"
+                                                v-bind:id="[item.key + 'imageLink' ]" type="file"
                                                 class="form-control" style="display: none"
                                                 accept="image/png, image/jpeg, image/jpg" />
-                                            <img class="pointer" v-bind:src="item.image" style="width: 100px"
-                                                @click="triggerFile(item, 'mainImage')" v-if="item.image" />
+                                            <img class="pointer" v-bind:src="item.imageLink" style="width: 100px"
+                                                @click="triggerFile(item, 'imageLink')" v-if="item.imageLink" />
                                         </td>
                                         <td>
                                             <button type="button" @click="delteItem(module, item)" class="btn btn-danger btn-sm">

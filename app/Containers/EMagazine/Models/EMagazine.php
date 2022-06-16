@@ -5,15 +5,13 @@ namespace App\Containers\EMagazine\Models;
 use Illuminate\Support\Str;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Apiato\Core\Foundation\ImageURL;
-use App\Containers\Category\Models\Category;
-use App\Containers\Category\Models\CategoryDesc;
 
 class EMagazine extends Model
 {
     protected $table = 'emagazines';
     protected $descModel = 'all_desc';
     protected $fillable = [
-        'category_id', 'banner', 'module', 'banner', 'is_hot', 'image', 'image_seo', 'sort_order', 'status', 'use_editor','author_name', 'author_image', 'author_video', 'designer', 'refer', 'source'
+        'module', 'sort_order', 'status', 'title'
     ];
 
     protected $attributes = [
@@ -59,42 +57,19 @@ class EMagazine extends Model
         return $this->hasManyKeyBy('language_id', EMagazineDescription::class, 'emagazine_id', 'id');
     }
 
-    public function category(){
-        return $this->hasOne(Category::class, 'category_id', 'category_id');
-    }
-
-    public function categories(){
-
-        return $this->belongsToMany(Category::class, 'emagazine_categories' ,'emagazine_id', 'category_id');
-    }
-
-    public function categoryIDS(){
-
-        return $this->hasMany(EMagazineCategories::class,'emagazine_id', 'id');
-    }
-
-    public function cate_desc(){
-
-        return $this->hasOne(CategoryDesc::class, 'category_id', 'category_id')->activeLang();
-    }
-
     public function formatModule($getImageLink = false, $jsonFormat = true){
         try{
             if(!$jsonFormat) return json_decode($this->module, true);
             if($getImageLink){
                 $modules = json_decode($this->module, true);
                 foreach($modules AS &$module){
-                    if(!empty($module['mainImage'])) $module['mainImageLink'] = ImageURL::getImageUrl($module['mainImage'], 'emagazine', 'avatar');
-                    if(!empty($module['subImage'])) $module['subImageLink'] = ImageURL::getImageUrl($module['subImage'], 'emagazine', 'avatar');
-                    if(!empty($module['listImage'])){
-                        foreach($module['listImage'] AS $image){
-                            $module['listImageLink'][] = ImageURL::getImageUrl($image , 'emagazine', 'avatar');
+                    if(!empty($module['image'])) $module['imageLink'] = ImageURL::getImageUrl($module['image'], 'emagazine', '');
+                    if(!empty($module['image_bg'])) $module['image_bgLink'] = ImageURL::getImageUrl($module['image_bg'], 'emagazine', '');
+                    if(!empty($module['items'])){
+                        foreach($module['items'] AS &$item){
+                            $item['imageLink'] = ImageURL::getImageUrl($item['image'], 'emagazine', '');
                         }
                     }
-                    if(!empty($module['bannerImage'])) $module['bannerImageLink'] = ImageURL::getImageUrl($module['bannerImage'], 'emagazine', 'avatar');
-                    if(!empty($module['bottomImage'])) $module['bottomImageLink'] = ImageURL::getImageUrl($module['bottomImage'], 'emagazine', 'avatar');
-                    $module['description'] = str_replace('"', '\"' , $module['description']);
-                    $module['top_description'] = str_replace('"', '\"' , @$module['top_description']);
                 }
                 return json_encode($modules, JSON_HEX_TAG | JSON_HEX_APOS);
             }

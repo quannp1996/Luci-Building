@@ -14,14 +14,10 @@ class CreateEMagazineAction extends Action
     {
         try{
             $data = Arr::only($emagazineData, [
-                'banner', 'is_hot', 'module', 'banner', 'image', 'image_seo', 'sort_order', 'status', 'author_name', 'author_image', 'author_video', 'designer', 'use_editor', 'refer', 'source'
+                'module', 'sort_order', 'status',
             ]);
             if(!empty($data['module']) && is_array($data['module'])) $data['module'] = json_encode($data['module'], JSON_HEX_TAG);
-            dd($data);
             $emagazine = app(CreateEMagazineTask::class)->run($data);
-            $emagazineCategories = [];
-            
-            $emagazine->categories()->sync($emagazineCategories);
             $emagazineDescription = [];
             foreach($emagazineData['emagazine_description'] AS $key => $emagzineDesc){
                 $emagazineDescription[$key] = array_merge($emagzineDesc, [

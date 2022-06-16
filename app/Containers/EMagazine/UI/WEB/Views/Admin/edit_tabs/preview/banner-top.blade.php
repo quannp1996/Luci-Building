@@ -47,12 +47,14 @@
                     </div>
                     <div>
                         <p>Ảnh nền</p>
-                        <input v-bind:name="['module['+ module.key +'][image]']"
-                            @change="chageImage(module, 'image' ,$event)" v-bind:id="[module.key + 'image' ]"
+                        <input 
+                            v-bind:name="['module['+ module.key +'][image]']"
+                            @change="chageImage(module, 'imageLink' ,$event)" 
+                            v-bind:id="[module.key + 'imageLink' ]"
                             type="file" class="form-control" style="display: none"
                             accept="image/png, image/jpeg, image/jpg" />
-                        <img class="w-50 pointer" v-bind:src="module.image"
-                            @click="triggerFile(module, 'image')" v-if="module.image" />
+                        <img class="w-50 pointer" v-bind:src="module.imageLink"
+                            @click="triggerFile(module, 'imageLink')" v-if="module.imageLink" />
                         <input type="hidden" v-model="module.old.image"
                             v-bind:name="['module['+ module.key +'][old][image]']" />
                     </div>

@@ -2,13 +2,15 @@ const item = {
     title: '',
     content: '',
     key: 'item_' + new Date().getTime(),
-    image: `${ENV.PUBLIC_URL}/upload/default.png`,
+    image: '',
+    imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
 }
 const templateData = {
     'banner': {
         title: 'Banner',
         description: '',
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         color: ''
     },
     'benifit': {
@@ -20,20 +22,25 @@ const templateData = {
         title: 'ĐỐI TÁC',
         description: '',
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
+        image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         items: [{... item}],
         color: ''
     },
     'feature': {
         title: 'TÍNH NĂNG QUẢN LÍ',
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         items: [{... item}],
         color: ''
     },
     'feature_2': {
         title: 'TÍNH NĂNG CƯ DÂN',
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
+        image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         items: [{... item}],
         color: ''
     },
@@ -41,48 +48,16 @@ const templateData = {
         title: 'TẠI SAO NÊN CHỌN CHÚNG TÔI ?',
         items: [{... item}],
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
+        image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         color: ''
     },
     'app': {
         title: 'APP QUẢNG CÁO',
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
+        image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         color: ''
-    }
-}
-const defaultModule = {
-    type: 'module-image',
-    key: new Date().getTime(),
-    title: 'Module Test',
-    description: '',
-    mainImage: 'demo.png',
-    mainImageLink: `/upload/default.png`,
-    subImageLink: `/upload/emagazine/original/demo_bottom.png`,
-    subImage: 'demo_bottom.png',
-    listImage: ['demo.png', 'demo.png', 'demo.png', 'demo.png', 'demo.png'],
-    listImageLink: [
-        `/upload/default.png`,
-        `/upload/default.png`,
-        `/upload/default.png`,
-        `/upload/default.png`,
-        `/upload/default.png`
-    ],
-    bannerImage: '',
-    bannerImageLink: '',
-    bottomImage: '',
-    bottomImageLink: '',
-    youtube: 'https://www.youtube.com/watch?v=hwT3yErdjRw',
-    old: {
-        mainImage: '',
-        mainImageLink: '',
-        subImageLink: '',
-        subImage: '',
-        listImage: [],
-        listImageLink: [],
-        bannerImage: '',
-        bannerImageLink: '',
-        bottomImage: '',
-        bottomImageLink: '',
     }
 }
 const emagazine = new Vue({
@@ -142,7 +117,7 @@ const emagazine = new Vue({
 
         setupMModule: function(module){
             this.modules.push({
-                ... JSON.parse(JSON.stringify(defaultModule)),
+                ... JSON.parse(JSON.stringify(templateData[module.type])),
                 ...module,
                 old: {
                     ... JSON.parse(JSON.stringify(module)),
@@ -173,11 +148,9 @@ const emagazine = new Vue({
             this.modules = [
                 ...this.modules,
                 {
-                    // ... JSON.parse(JSON.stringify(defaultModule)),
                     ... JSON.parse(JSON.stringify(templateData[keyModule])),
                     key: this.buildKey(),
                     old: {
-                        // ... JSON.parse(JSON.stringify(defaultModule)),
                         ... JSON.parse(JSON.stringify(templateData[keyModule])),
                     },
                     type: keyModule
@@ -204,6 +177,7 @@ const emagazine = new Vue({
         },
 
         triggerFile: function(module, key){
+            console.log('#'+ module.key + key);
             $('#'+ module.key + key).click();
         },
 
@@ -218,7 +192,7 @@ const emagazine = new Vue({
         },
 
         buildKey: function(key = ''){
-            return new Date().getTime() + key;
+            return key + new Date().getTime();
         },
 
         saveModule: function(module){
@@ -282,7 +256,7 @@ const emagazine = new Vue({
             }
             if(typeof newModule.items != "undefined"){
                 newModule.items.forEach(function(item){
-                    item.key = this.buildKey();
+                    item.key = this.buildKey('item_');
                 }.bind(this));
             }
             this.modules = [
@@ -294,7 +268,7 @@ const emagazine = new Vue({
         addItem: function(module){
             module.items.push({
                 ... JSON.parse(JSON.stringify(item)),
-                key: 'item_' + new Date().getTime(),
+                key: this.buildKey('item_'),
             });
         },
 

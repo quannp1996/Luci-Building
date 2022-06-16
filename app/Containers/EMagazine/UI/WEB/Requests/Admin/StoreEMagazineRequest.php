@@ -36,7 +36,6 @@ class StoreEMagazineRequest extends Request
     {
         return [
             'emagazine_description.*.title' => ['required', 'string'],
-            
         ];
     }
 

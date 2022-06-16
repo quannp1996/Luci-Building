@@ -37,7 +37,7 @@ class Controller extends AdminController
     public function listEmagazine(ListEMagazineRequest $request)
     {
         app(CreateBreadcrumbAction::class)->run('list', $this->title);
-        $emagazines = app(GetAllEMagazinesAction::class)->run($request, EnumEmagzine::PERPAGEE, ['desc', 'cate_desc']);
+        $emagazines = app(GetAllEMagazinesAction::class)->run($request, EnumEmagzine::PERPAGEE, ['desc']);
         return view('emagazine::Admin.list', [
             'request' => $request,
             'data' => $emagazines,
@@ -70,16 +70,9 @@ class Controller extends AdminController
         app(CreateBreadcrumbAction::class)->run('edit', $this->title, 'admin_emagazine_list');
         $this->showEditForm();
         try{
-            $emagazine = app(FindEMagazineByIdAction::class)->run($request->id, [
-                'all_desc',
-                'categoryIDS'
-            ]);
-            $subCategories = $emagazine->categoryIDS->filter(function($item){
-                return $item->is_main == 0;
-            });
+            $emagazine = app(FindEMagazineByIdAction::class)->run($request->id);
             return view('emagazine::Admin.form', [
                 'data' => $emagazine,
-                'subCategories' => !empty($emagazine->categoryIDS) ? array_column(array_values($subCategories->toArray()), 'category_id') : []
             ]);
         }catch(\Exception $e){
             return redirect()->back()->withInput()->withErrors(['error:' => 'Có lỗi trong quá trình lưu dữ liệu! Vui lòng thử lại! '. $e->getMessage()]);
@@ -90,7 +83,6 @@ class Controller extends AdminController
     {
         try{
             $transporter = $request->all();
-            $transporter['use_editor'] = $request->get('use_editor', 0);
             $transporter = $this->processImage($transporter, $request);
             app(UpdateEMagazineAction::class)->run($transporter, $request->id);
             return redirect()->route('admin_emagazine_edit', [
@@ -175,32 +167,15 @@ class Controller extends AdminController
                 }elseif(!empty($module['old']['image_bg'])){
                     $module['image_bg'] = @$module['old']['image_bg'];
                 }
-                
-                // Upload List Image
-                // for($i = 0; $i < 5; $i++){
-                //     if(!empty($module['listImage'][$i]) && $module['listImage'][$i] instanceof UploadedFile){
-                //         $module['listImage'][$i] = $this->uploadImageSpecial($module['listImage'][$i], 'module-listImage-'.$keyModule.'-'.$i, 'emagazine');
-                //     }else{
-                //         $module['listImage'][$i] = @$module['old']['listImage'][$i];
-                //     }
-                //     ksort($module['listImage']);
-                // }
+
+                if(!empty($module['items'])){
+                    foreach($module['items'] AS $keyItem => &$item){
+                        if(!empty($item['image']) && $item['image'] instanceof UploadedFile) {
+                            $item['image'] = $this->uploadImageSpecial($item['image'], 'module-items-'.$keyItem, 'emagazine');
+                        }
+                    }
+                }
             }
-        }
-        if(!empty($transporter['image'])){
-            $this->uploadImage($transporter, $request, 'image', 'mainImage', 'emagazine');
-        }else{
-            $transporter['image'] = @$transporter['old_image'];
-        }
-        if(!empty($transporter['banner'])){
-            $this->uploadImage($transporter, $request, 'banner', 'bannerImage', 'emagazine');
-        }else{
-            $transporter['banner'] = @$transporter['old_banner'];
-        }
-        if(!empty($transporter['image_seo'])){
-            $this->uploadImage($transporter, $request, 'image_seo', 'seoImage', 'emagazine');
-        }else{
-            $transporter['image_seo'] = @$transporter['old_image_seo'];
         }
         return $transporter;
     }

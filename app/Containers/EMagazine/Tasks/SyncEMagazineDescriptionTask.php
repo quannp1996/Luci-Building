@@ -16,7 +16,7 @@ class SyncEMagazineDescriptionTask extends Task
         $this->repository = $repository;
     }
 
-    public function run(array $data, int $id)
+    public function run(array $data, $id)
     {
         try {
             return $this->repository->syncDescription($data, $id);

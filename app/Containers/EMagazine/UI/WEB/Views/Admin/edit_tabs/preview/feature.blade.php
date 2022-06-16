@@ -35,14 +35,18 @@
                     <div class="form-group">
                         <label>Ảnh trung tâm</label>
                         <div class="input-group">
-                            <input type="hidden" v-model="module.old.image"
+                            <input type="hidden" 
+                                v-model="module.image"
                                 v-bind:name="['module['+ module.key +'][image]']" />
-                            <input v-bind:name="['module['+ module.key +'][image]']"
-                                @change="chageImage(module, 'image' ,$event)" v-bind:id="[module.key + 'image' ]"
+                            <input 
+                                v-bind:name="['module['+ module.key +'][image]']"
                                 type="file" class="form-control" style="display: none"
-                                accept="image/png, image/jpeg, image/jpg" />
-                            <img class="pointer" v-bind:src="module.image" style="width: 100px"
-                                @click="triggerFile(module, 'image')" v-if="module.image" />
+                                accept="image/png, image/jpeg, image/jpg" 
+                                @change="chageImage(module, 'image' ,$event)" v-bind:id="[module.key + 'image' ]"
+                            />
+                            <img class="pointer" v-bind:src="module.imageLink" style="width: 100px"
+                                @click="triggerFile(module, 'image')" v-if="module.image" 
+                            />
                         </div>
                     </div>
                     <div class="form-group">
@@ -63,21 +67,29 @@
                                 <tbody>
                                     <tr v-for="(item, index) in module.items">
                                         <td>
-                                            <input type="text" class="form-control"
+                                            <input 
+                                                type="text" class="form-control"
                                                 v-bind:name="['module['+ module.key +'][items][' + index + '][title]']"
-                                                id="">
+                                                v-model="item.title"
+                                            >
+                                            <input type="hidden" class="form-control"
+                                                v-model="item.key"
+                                                v-bind:name="['module['+ module.key +'][items][' + index + '][key]']"
+                                            >
                                         </td>
                                         <td>
-                                            <input type="hidden" v-model="module.old.mainImage"
+                                            <input type="hidden" v-model="item.image"
                                                 v-bind:name="['module['+ module.key +'][items][' + index + '][image]']" />
                                             <input
-                                                v-bind:name="['module['+ module.key +'][items][' + index + '][image]']"
-                                                @change="chageImage(item, 'image' ,$event)"
-                                                v-bind:id="[item.key + 'mainImage' ]" type="file"
                                                 class="form-control" style="display: none"
-                                                accept="image/png, image/jpeg, image/jpg" />
+                                                accept="image/png, image/jpeg, image/jpg" 
+                                                v-bind:name="['module['+ module.key +'][items][' + index + '][image]']"
+                                                v-bind:id="[item.key + 'imageLink' ]" type="file"
+                                                @change="chageImage(item, 'imageLink' ,$event)"
+                                            />
+
                                             <img class="pointer" v-bind:src="item.image" style="width: 100px"
-                                                @click="triggerFile(item, 'mainImage')" v-if="item.image" />
+                                                @click="triggerFile(item, 'imageLink')" v-if="item.imageLink" />
                                         </td>
                                         <td>
                                             <button type="button" @click="delteItem(module, item)"
