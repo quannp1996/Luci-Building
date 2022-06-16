@@ -1,7 +1,7 @@
 const item = {
     title: '',
     content: '',
-    key: new Date().getTime(),
+    key: 'item_' + new Date().getTime(),
     image: `${ENV.PUBLIC_URL}/upload/default.png`,
 }
 const templateData = {
@@ -279,16 +279,16 @@ const emagazine = new Vue({
             if(typeof module[key] == 'string'){
                 Object.keys(files).forEach(function(index){
                     let file = files[index];
-                    module[`${key}Link`] = URL.createObjectURL(file);
+                    module[`${key}`] = URL.createObjectURL(file);
                 })
             }else{
                 Object.keys(files).forEach(function(index){
                     let file = files[index];
                     let indexKey = event.target.getAttribute('data-index');
-                    console.log(module[`${key}Link`]);
-                    if(module[`${key}Link`][indexKey] != undefined){
-                        module[`${key}Link`] =  {
-                            ... module[`${key}Link`],
+                    console.log(module[`${key}`]);
+                    if(module[`${key}`][indexKey] != undefined){
+                        module[`${key}`] =  {
+                            ... module[`${key}`],
                             [indexKey]: URL.createObjectURL(file)
                         }
                     }
@@ -311,7 +311,16 @@ const emagazine = new Vue({
         },
 
         addItem: function(module){
-            
+            module.items.push({
+                ... JSON.parse(JSON.stringify(item)),
+                key: 'item_' + new Date().getTime(),
+            });
+        },
+
+        delteItem: function(module, item) {
+            module.items = module.items.filter(i => {
+                return i.key != item.key
+            })
         },
 
         onInput: function(event, module){
