@@ -2,7 +2,6 @@
 
 /** @var Route $router */
 
-use App\Containers\Localization\Actions\CheckSegmentLanguageAction;
 use Illuminate\Support\Facades\Route;
 
 Route::group(

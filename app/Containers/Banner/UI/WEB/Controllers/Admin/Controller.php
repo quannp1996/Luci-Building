@@ -11,7 +11,6 @@ use App\Containers\Banner\UI\WEB\Requests\Admin\FindBannerRequest;
 use App\Containers\Banner\UI\WEB\Requests\CreateBannerRequest;
 use App\Containers\Banner\UI\WEB\Requests\GetAllBannerRequest;
 use App\Containers\Banner\UI\WEB\Requests\UpdateBannerRequest;
-use App\Containers\Category\Actions\Admin\GetAllCategoriesAction;
 use App\Ship\Parents\Controllers\AdminController;
 use Exception;
 

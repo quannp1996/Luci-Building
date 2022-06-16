@@ -17,6 +17,7 @@ return [
             'admin/css/dropify.min.css', // Upload and Preview Image
         ],
         'js' => [
+            'js/core.js',
             'admin/js/library/jquery-3.5.1.min.js',
             'admin/vendors/@coreui/coreui/js/coreui.bundle.min.js',
             'admin/vendors/@coreui/coreui/js/coreui.bundle.min.map',
@@ -28,7 +29,6 @@ return [
             'admin/js/library/dropify.min.js',
             'admin/js/library/jquery.i18n.min.js',
             'admin/js/library/jquery.i18n.messagestore.min.js',
-            'js/core.js',
             'admin/js/tooltips.js',
             'admin/js/helpers.js',
             'admin/js/admin.js',
@@ -37,14 +37,7 @@ return [
             'admin/js/init/sidebar-setup.js',
             'admin/js/init/plugin-setup.js',
             'admin/js/init/submit-setup.js',
-            'admin/js/customize.js',
-            'admin/js/customer.js',
-            'admin/js/customer-group.js',
-            'admin/js/order.js',
-            'admin/js/comment.js',
-            'admin/js/discount.js',
-            'admin/js/discount-list.js',
-            'admin/js/iframe.js',
+            config('app.env') == 'local' ? 'js/vue_dev.js' : 'js/vue.js',
         ],
         'media' => [
             'admin/node_modules/font-awesome/css/font-awesome.min.css',
@@ -61,7 +54,7 @@ return [
         ],
         'js' => [
             'template/js/httpvueloader.js',
-            config('app.env') == 'local' ? 'template/js/vue_dev.js' : 'template/js/vue.js',
+            config('app.env') == 'local' ? 'js/vue_dev.js' : 'js/vue.js',
             'template/libs/jquery/jquery.min.js',
             'template/libs/bootstrap/bootstrap.min.js',
             'template/libs/swiper/swiper-bundle.min.js',
