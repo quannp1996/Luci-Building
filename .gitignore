@@ -1,6 +1,5 @@
 /node_modules
 /public/hot
-/storage
 .env
 .eslintrc.js
 .local.env
@@ -11,7 +10,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-storage/logs/laravel.log
 /public/api-rendered-markdowns/*
 /public/api/
 /public/uploads/
