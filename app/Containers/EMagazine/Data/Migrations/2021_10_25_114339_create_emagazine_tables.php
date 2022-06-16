@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateEmagazineTables extends Migration
 {
@@ -12,12 +13,8 @@ class CreateEmagazineTables extends Migration
     public function up()
     {
         Schema::create('emagazines', function (Blueprint $table) {
-
             $table->increments('id');
-
             $table->timestamps();
-            //$table->softDeletes();
-
         });
     }
 

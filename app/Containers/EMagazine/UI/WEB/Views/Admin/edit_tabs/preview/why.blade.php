@@ -1,4 +1,4 @@
-<div v-if="module.type == 'benifit'">
+<div v-if="module.type == 'why'">
     <input type="hidden" v-model="module.type" v-bind:name="['module['+ module.key +'][type]']" />
     <input type="hidden" v-model="module.key" v-bind:name="['module['+ module.key +'][key]']" />
     <div class="card-body relative-div">
@@ -30,6 +30,19 @@
                         <label>Tiêu đề</label>
                         <div class="input-group">
                             <textarea v-bind:name="['module['+ module.key +'][title]']" v-model="module.title" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ảnh Nền</label>
+                        <div class="input-group">
+                            <input type="hidden" v-model="module.old.image"
+                                v-bind:name="['module['+ module.key +'][image]']" />
+                            <input v-bind:name="['module['+ module.key +'][image_bg]']"
+                                @change="chageImage(module, 'image_bg' ,$event)" v-bind:id="[module.key + 'image_bg' ]"
+                                type="file" class="form-control" style="display: none"
+                                accept="image/png, image/jpeg, image/jpg" />
+                            <img class="pointer" v-bind:src="module.image_bg" style="width: 100px"
+                                @click="triggerFile(module, 'image_bg')" v-if="module.image_bg" />
                         </div>
                     </div>
                     <div class="form-group">

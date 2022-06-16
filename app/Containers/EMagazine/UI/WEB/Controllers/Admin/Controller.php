@@ -51,16 +51,16 @@ class Controller extends AdminController
     }
 
     public function storeEmagazine(StoreEMagazineRequest $request){
-        DB::beginTransaction();
+        // DB::beginTransaction();
         try{
             $transporter = $request->all();
             $transporter['use_editor'] = $request->get('use_editor', 0);
             $transporter = $this->processImage($transporter, $request);
             app(CreateEMagazineAction::class)->run($transporter);
-            DB::commit();
+            // DB::commit();
             return redirect()->route('admin_emagazine_list')->with('status', 'Bài viết đã được thêm mới');
         }catch(\Exception $e){
-            DB::rollBack();
+            // DB::rollBack();
             return redirect()->back()->withInput()->withErrors(['error:' => 'Có lỗi trong quá trình lưu dữ liệu! Vui lòng thử lại! ']);
         }
     }
@@ -97,7 +97,7 @@ class Controller extends AdminController
                 'id' => $request->id
             ])->with('status', 'Bài viết đã được cập nhật');
         }catch(\Exception $e){
-            DB::rollBack();
+            // DB::rollBack();
             return redirect()->back()->withInput()->withErrors(['error:' => 'Có lỗi trong quá trình lưu dữ liệu! Vui lòng thử lại! '. $e->getMessage()]);
         }
 
@@ -164,32 +164,27 @@ class Controller extends AdminController
         if(!empty($transporter['module'])){
             foreach($transporter['module'] AS $keyModule => &$module){
                 // Upload Main Image
-                if(!empty($module['mainImage']) && $module['mainImage'] instanceof UploadedFile){
-                    $module['mainImage'] = $this->uploadImageSpecial($module['mainImage'], 'module-mainImage-'.$keyModule, 'emagazine');
-                }elseif(!empty($module['old']['mainImage'])){
-                    $module['mainImage'] = @$module['old']['mainImage'];
+                if(!empty($module['image']) && $module['image'] instanceof UploadedFile){
+                    $module['image'] = $this->uploadImageSpecial($module['image'], 'module-image-'.$keyModule, 'emagazine');
+                }elseif(!empty($module['old']['image'])){
+                    $module['image'] = @$module['old']['image'];
                 }
-                // Upload Sub Image
-                if(!empty($module['subImage']) && $module['subImage'] instanceof UploadedFile) {
-                    $module['subImage'] = $this->uploadImageSpecial($module['subImage'], 'module-subImage-'.$keyModule, 'emagazine');
-                }elseif(!empty($module['old']['subImage'])){
-                    $module['subImage'] = @$module['old']['subImage'];
+                // Upload BackGround Image
+                if(!empty($module['image_bg']) && $module['image_bg'] instanceof UploadedFile) {
+                    $module['image_bg'] = $this->uploadImageSpecial($module['image_bg'], 'module-image_bg-'.$keyModule, 'emagazine');
+                }elseif(!empty($module['old']['image_bg'])){
+                    $module['image_bg'] = @$module['old']['image_bg'];
                 }
-                // Upload Banner Image
-                if(!empty($module['bannerImage']) && $module['bannerImage'] instanceof UploadedFile){
-                    $module['bannerImage'] = $this->uploadImageSpecial($module['bannerImage'], 'module-bannerImage-'.$keyModule, 'emagazine');
-                }elseif(!empty($module['old']['bannerImage'])){
-                    $module['bannerImage'] = @$module['old']['bannerImage'];
-                }
+                
                 // Upload List Image
-                for($i = 0; $i < 5; $i++){
-                    if(!empty($module['listImage'][$i]) && $module['listImage'][$i] instanceof UploadedFile){
-                        $module['listImage'][$i] = $this->uploadImageSpecial($module['listImage'][$i], 'module-listImage-'.$keyModule.'-'.$i, 'emagazine');
-                    }else{
-                        $module['listImage'][$i] = @$module['old']['listImage'][$i];
-                    }
-                    ksort($module['listImage']);
-                }
+                // for($i = 0; $i < 5; $i++){
+                //     if(!empty($module['listImage'][$i]) && $module['listImage'][$i] instanceof UploadedFile){
+                //         $module['listImage'][$i] = $this->uploadImageSpecial($module['listImage'][$i], 'module-listImage-'.$keyModule.'-'.$i, 'emagazine');
+                //     }else{
+                //         $module['listImage'][$i] = @$module['old']['listImage'][$i];
+                //     }
+                //     ksort($module['listImage']);
+                // }
             }
         }
         if(!empty($transporter['image'])){

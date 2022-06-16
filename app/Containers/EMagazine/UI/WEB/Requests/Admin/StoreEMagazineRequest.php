@@ -36,9 +36,7 @@ class StoreEMagazineRequest extends Request
     {
         return [
             'emagazine_description.*.title' => ['required', 'string'],
-            'image' => ['required', 'mimes:jpg,png,jpeg'],
-            'banner' => ['nullable', 'mimes:jpg,png,jpeg'],
-            'image_seo' => ['nullable', 'mimes:jpg,png,jpeg']
+            
         ];
     }
 
@@ -46,10 +44,6 @@ class StoreEMagazineRequest extends Request
     {
         return [
             'emagazine_description.*.title.required' => 'Tiêu đề không được bỏ trống',
-            'image.required' => 'Ảnh đại diện là trường bắt buộc',
-            'image.mimes' => 'Ảnh đại diện không đúng định dạng',
-            'banner.mimes' => 'Ảnh Banner không đúng định dạng',
-            'image_seo.mimes' => 'Ảnh SEO không đúng định dạng',
         ];
     }
     /**

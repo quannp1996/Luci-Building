@@ -5,59 +5,49 @@ const item = {
     image: `${ENV.PUBLIC_URL}/upload/default.png`,
 }
 const templateData = {
-    'banner_top': {
-        title: '',
+    'banner': {
+        title: 'Banner',
         description: '',
-        mainImage: 'demo.png',
-        mainImageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
+        image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        color: ''
     },
     'benifit': {
-       title: '',
-       items: [JSON.parse(JSON.stringify(item))]
+       title: 'LỢI NHUẬN',
+       items: [{... item}],
+       color: ''
     },
-    'video-top': {
-        mainImage: 'demo.png',
-        mainImageLink: `/upload/default.png`,
-        subImageLink: `/upload/emagazine/original/demo_bottom.png`,
-        subImage: 'demo_bottom.png',
-        description: ``,
-        youtube: 'https://www.youtube.com/watch?v=hwT3yErdjRw',
+    'partner': {
+        title: 'ĐỐI TÁC',
+        description: '',
+        image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
+        items: [{... item}],
+        color: ''
     },
-    'image-left': {
-        mainImage: 'left_image.png',
-        mainImageLink: `/upload/emagazine/original/left_image.png`,
-        subImageLink: `/upload/emagazine/original/demo_bottom.png`,
-        subImage: 'demo_bottom.png',
-        description: ``,
-        sub_description: ``,
+    'feature': {
+        title: 'TÍNH NĂNG QUẢN LÍ',
+        image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        items: [{... item}],
+        color: ''
     },
-    'image-right': {
-        mainImage: 'right_image.png',
-        mainImageLink: `/upload/emagazine/original/right_image.png`,
-        subImageLink: `/upload/emagazine/original/demo_bottom.png`,
-        subImage: 'demo_bottom.png',
-        description: ``,
+    'feature_2': {
+        title: 'TÍNH NĂNG CƯ DÂN',
+        image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
+        items: [{... item}],
+        color: ''
     },
-    'list-image': {
-        listImage: ['demo.png', 'demo.png', 'demo.png', 'demo.png', 'demo.png'],
-        listImageLink: [
-            `/upload/default.png`,
-            `/upload/default.png`,
-            `/upload/default.png`,
-            `/upload/default.png`,
-            `/upload/default.png`
-        ],
-        description: ``,
-        mainImage: 'demo.png',
-        mainImageLink: `/upload/default.png`,
-        sub_description: `` 
+    'why': {
+        title: 'TẠI SAO NÊN CHỌN CHÚNG TÔI ?',
+        items: [{... item}],
+        image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
+        color: ''
     },
-    'large-image': {
-        mainImage: 'large_main_image.png',
-        mainImageLink: `/upload/emagazine/original/large_main_image.png`,
-        subImageLink: `/upload/emagazine/original/large_sub_image.png`,
-        subImage: 'large_sub_image.png',
-        description: ``
+    'app': {
+        title: 'APP QUẢNG CÁO',
+        image: `${ENV.PUBLIC_URL}/upload/default.png`,
+        image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
+        color: ''
     }
 }
 const defaultModule = {
@@ -102,16 +92,6 @@ const emagazine = new Vue({
         template: ['text-top', 'video-top', 'image-left', 'image-right', 'list-image', 'large-image']
     },
     mounted: function(){
-        const items = document.querySelectorAll('.item');
-        const boxes = document.querySelectorAll('.dropDiv');
-        items.forEach( item => {
-            item.addEventListener('dragstart', this.dragModule);
-            item.addEventListener('dragend', this.dragEnd);
-        })
-        boxes.forEach( element => {
-            element.addEventListener('drop', this.dropDiv);
-        });
-        this.useEditor = !!(+useEditor);
         this.initModule();
     },
     methods: {
@@ -128,10 +108,8 @@ const emagazine = new Vue({
                   }).then((result) => {
                     if (result.isConfirmed) {
                         this.modules = [];
-                        console.log(this.template);
                         for (let index = 0; index < this.template.length; index++) {
                             const element = this.template[index];
-                            console.log(element);
                             this.modules.push(
                                 {
                                     ... JSON.parse(JSON.stringify(templateData[element])),
@@ -285,7 +263,6 @@ const emagazine = new Vue({
                 Object.keys(files).forEach(function(index){
                     let file = files[index];
                     let indexKey = event.target.getAttribute('data-index');
-                    console.log(module[`${key}`]);
                     if(module[`${key}`][indexKey] != undefined){
                         module[`${key}`] =  {
                             ... module[`${key}`],
@@ -297,16 +274,20 @@ const emagazine = new Vue({
         },
 
         addModule: function(moduleText) {
+            const newModule = {
+                ... JSON.parse(JSON.stringify(templateData[moduleText])),
+                key: this.buildKey(),
+                old: {},
+                type: moduleText
+            }
+            if(typeof newModule.items != "undefined"){
+                newModule.items.forEach(function(item){
+                    item.key = this.buildKey();
+                }.bind(this));
+            }
             this.modules = [
                 ...this.modules,
-                {
-                    ... JSON.parse(JSON.stringify(templateData[moduleText])),
-                    key: this.buildKey(),
-                    old: {
-                        ... JSON.parse(JSON.stringify(templateData[moduleText])),
-                    },
-                    type: moduleText
-                }
+                newModule
             ]
         },
 
@@ -327,5 +308,8 @@ const emagazine = new Vue({
             module.description = event.target.innerText;
         },
 
+        bindStyle: function() {
+
+        }
     },
 })

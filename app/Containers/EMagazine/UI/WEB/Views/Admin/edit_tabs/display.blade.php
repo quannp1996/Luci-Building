@@ -16,19 +16,19 @@
                                 @include('emagazine::Admin.edit_tabs.preview.benifit')
 
                                 <!--  Preview for module Image Right -->
-                                @include('emagazine::Admin.edit_tabs.preview.image-right')
+                                @include('emagazine::Admin.edit_tabs.preview.partner')
 
                                 <!--  Preview for module Video Top -->
-                                @include('emagazine::Admin.edit_tabs.preview.video-top')
+                                @include('emagazine::Admin.edit_tabs.preview.feature')
 
                                 <!--  Preview for module List Image -->
-                                @include('emagazine::Admin.edit_tabs.preview.list-image')
+                                @include('emagazine::Admin.edit_tabs.preview.feature_2')
 
                                 <!--  Preview for module Image on Text -->
-                                @include('emagazine::Admin.edit_tabs.preview.image-top')
+                                @include('emagazine::Admin.edit_tabs.preview.why')
 
                                 <!--  Preview for module Image on Text -->
-                                @include('emagazine::Admin.edit_tabs.preview.large-image')
+                                @include('emagazine::Admin.edit_tabs.preview.app')
                                 
                             </div>
                         </div>
@@ -41,18 +41,13 @@
                         </div>
                         <div class="card-body" style="min-height: 400px">
                             <ul class="list-group">
-                                <li class="list-group-item item" @click="addModule('banner_top')" id="item1"> Banner đầu trang </li>
+                                <li class="list-group-item item" @click="addModule('banner')" id="item1">BANNER</li>
                                 <li class="list-group-item item" @click="addModule('benifit')" id="item1"> LỢI ÍCH </li>
-                                <li draggable="true" data-module="video-top" class="list-group-item item"
-                                    id="item2">Video, nội dung</li>
-                                <li draggable="true" data-module="image-left" class="list-group-item item"
-                                    id="item3">Nội dung bên trái ảnh</li>
-                                <li draggable="true" data-module="image-right" class="list-group-item item"
-                                    id="item4">Nội dung bên phải ảnh</li>
-                                <li draggable="true" data-module="list-image" class="list-group-item item"
-                                    id="item5">Danh sách ảnh</li>
-                                <li draggable="true" data-module="large-image" class="list-group-item item"
-                                    id="item7">Ảnh toàn Màn hình</li>
+                                <li class="list-group-item item" @click="addModule('partner')" id="item2">ĐỐI TÁC</li>
+                                <li class="list-group-item item" @click="addModule('feature')" id="item2">TÍNH NĂNG BAN QUẢN LÍ</li>
+                                <li class="list-group-item item" @click="addModule('feature_2')" id="item2">TÍNH NĂNG CƯ DÂN</li>
+                                <li class="list-group-item item" @click="addModule('why')" id="item2">TẠI SAO NÊN CHỌN CHÚNG TÔI</li>
+                                <li class="list-group-item item" @click="addModule('app')" id="item2">APP QUẢNG CÁO</li>
                             </ul>
                         </div>
                     </div>
