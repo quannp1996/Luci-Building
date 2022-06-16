@@ -1,21 +1,23 @@
+const item = {
+    title: '',
+    content: '',
+    key: new Date().getTime(),
+    image: `${ENV.PUBLIC_URL}/upload/default.png`,
+}
 const templateData = {
-    'text-top': {
+    'banner_top': {
+        title: '',
         description: '',
         mainImage: 'demo.png',
-        mainImageLink: `/upload/emagazine/original/demo.png`,
-        subImageLink: `/upload/emagazine/original/demo_bottom.png`,
-        subImage: 'demo_bottom.png',
+        mainImageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
     },
-    'image-top': {
-        description: '',
-        mainImage: 'demo.png',
-        mainImageLink: `/upload/emagazine/original/demo.png`,
-        subImageLink: `/upload/emagazine/original/demo_bottom.png`,
-        subImage: 'demo_bottom.png',
+    'benifit': {
+       title: '',
+       items: [JSON.parse(JSON.stringify(item))]
     },
     'video-top': {
         mainImage: 'demo.png',
-        mainImageLink: `/upload/emagazine/original/demo.png`,
+        mainImageLink: `/upload/default.png`,
         subImageLink: `/upload/emagazine/original/demo_bottom.png`,
         subImage: 'demo_bottom.png',
         description: ``,
@@ -39,15 +41,15 @@ const templateData = {
     'list-image': {
         listImage: ['demo.png', 'demo.png', 'demo.png', 'demo.png', 'demo.png'],
         listImageLink: [
-            `/upload/emagazine/original/demo.png`,
-            `/upload/emagazine/original/demo.png`,
-            `/upload/emagazine/original/demo.png`,
-            `/upload/emagazine/original/demo.png`,
-            `/upload/emagazine/original/demo.png`
+            `/upload/default.png`,
+            `/upload/default.png`,
+            `/upload/default.png`,
+            `/upload/default.png`,
+            `/upload/default.png`
         ],
         description: ``,
         mainImage: 'demo.png',
-        mainImageLink: `/upload/emagazine/original/demo.png`,
+        mainImageLink: `/upload/default.png`,
         sub_description: `` 
     },
     'large-image': {
@@ -64,16 +66,16 @@ const defaultModule = {
     title: 'Module Test',
     description: '',
     mainImage: 'demo.png',
-    mainImageLink: `/upload/emagazine/original/demo.png`,
+    mainImageLink: `/upload/default.png`,
     subImageLink: `/upload/emagazine/original/demo_bottom.png`,
     subImage: 'demo_bottom.png',
     listImage: ['demo.png', 'demo.png', 'demo.png', 'demo.png', 'demo.png'],
     listImageLink: [
-        `/upload/emagazine/original/demo.png`,
-        `/upload/emagazine/original/demo.png`,
-        `/upload/emagazine/original/demo.png`,
-        `/upload/emagazine/original/demo.png`,
-        `/upload/emagazine/original/demo.png`
+        `/upload/default.png`,
+        `/upload/default.png`,
+        `/upload/default.png`,
+        `/upload/default.png`,
+        `/upload/default.png`
     ],
     bannerImage: '',
     bannerImageLink: '',
@@ -97,7 +99,6 @@ const emagazine = new Vue({
     el: '#howShow',
     data: {
         modules: [],
-        useEditor: false,
         template: ['text-top', 'video-top', 'image-left', 'image-right', 'list-image', 'large-image']
     },
     mounted: function(){
@@ -112,7 +113,6 @@ const emagazine = new Vue({
         });
         this.useEditor = !!(+useEditor);
         this.initModule();
-        setTimeout(this.buildEditor, 0);
     },
     methods: {
         buildTemplate: function(){
@@ -161,6 +161,7 @@ const emagazine = new Vue({
                 }
             }
         },
+
         setupMModule: function(module){
             this.modules.push({
                 ... JSON.parse(JSON.stringify(defaultModule)),
@@ -295,17 +296,27 @@ const emagazine = new Vue({
             }
         },
 
-        onInput: function(event, module, key = 'description'){
+        addModule: function(moduleText) {
+            this.modules = [
+                ...this.modules,
+                {
+                    ... JSON.parse(JSON.stringify(templateData[moduleText])),
+                    key: this.buildKey(),
+                    old: {
+                        ... JSON.parse(JSON.stringify(templateData[moduleText])),
+                    },
+                    type: moduleText
+                }
+            ]
+        },
+
+        addItem: function(module){
+            
+        },
+
+        onInput: function(event, module){
             module.description = event.target.innerText;
         },
 
-        toggleEditor: function(){
-            this.useEditor = !this.useEditor;
-            setTimeout(this.buildEditor, 0);
-        },
-        
-        buildEditor: function(){
-            admin.system.tinyMCE('.__editor', plugins = '', menubar = '', toolbar = '', height = 500, '95%');
-        }
     },
 })
