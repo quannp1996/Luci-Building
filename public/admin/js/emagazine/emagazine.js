@@ -12,13 +12,15 @@ const templateData = {
         baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
         imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
+        display: 1,
         color: ''
     },
     'benifit': {
        title: 'LỢI NHUẬN',
        baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
        items: [{... item}],
-       color: ''
+       color: '',
+       display: 1,
     },
     'partner': {
         title: 'ĐỐI TÁC',
@@ -29,6 +31,7 @@ const templateData = {
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         items: [{... item}],
+        display: 1,
         color: ''
     },
     'feature': {
@@ -37,6 +40,7 @@ const templateData = {
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
         imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         items: [{... item}],
+        display: 1,
         color: ''
     },
     'feature_2': {
@@ -47,6 +51,7 @@ const templateData = {
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         items: [{... item}],
+        display: 1,
         color: ''
     },
     'why': {
@@ -55,6 +60,7 @@ const templateData = {
         items: [{... item}],
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
+        display: 1,
         color: ''
     },
     'app': {
@@ -64,6 +70,7 @@ const templateData = {
         imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
+        display: 1,
         color: ''
     }
 }
@@ -130,6 +137,7 @@ const emagazine = new Vue({
                     }
                 })
             }
+            if (typeof module.display == 'undefined') module.display = 1;
             this.modules.push({
                 ... JSON.parse(JSON.stringify(templateData[module.type])),
                 ... module,
@@ -295,6 +303,10 @@ const emagazine = new Vue({
 
         bindStyle: function() {
 
+        },
+
+        toggleStatus: function(module){
+            module.display = module.display == 1 ? 0 : 1;
         }
     },
 })

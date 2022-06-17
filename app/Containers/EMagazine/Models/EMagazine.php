@@ -83,6 +83,7 @@ class EMagazine extends Model
         try{
             $modules = json_decode($this->module, true);
             foreach($modules AS &$module){
+                if($module['display'] == null) $module['display'] = 1;
                 if(!empty($module['image'])) $module['imageLink'] = ImageURL::getImageUrl($module['image'], 'emagazine', '');
                 if(!empty($module['image_bg'])) $module['image_bgLink'] = ImageURL::getImageUrl($module['image_bg'], 'emagazine', '');
                 if(!empty($module['items'])){

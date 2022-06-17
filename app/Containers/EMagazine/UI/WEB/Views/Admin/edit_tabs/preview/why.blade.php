@@ -3,6 +3,13 @@
     <input type="hidden" v-model="module.key" v-bind:name="['module['+ module.key +'][key]']" />
     <div class="card-body relative-div">
         <div class="float-right ml-2 absolute-div">
+            <a href="javascript:;" @click="toggleStatus(module)"
+            >
+                <i class="fa fa-eye" aria-hidden="true" v-if="module.display == 1"></i>
+                <i class="fa fa-eye-slash" aria-hidden="true" v-if="module.display == 0"></i>
+            </a>
+
+            <input type="hidden" v-model="module.display" v-bind:name="['module['+ module.key +'][display]']" />
             <a href="javascript:;" data-toggle="modal" title="Cấu hình"
                 v-bind:data-target="['#exampleModalCenter' + index]">
                 <i class="fa fa-cog" aria-hidden="true"></i>
