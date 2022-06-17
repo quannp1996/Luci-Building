@@ -60,7 +60,7 @@
                                         <div class="icon-box-text last-reset">
                                             <p style="text-align: left;">
                                                 <span style="font-size: 1rem;">
-                                                    {{ $list['title'] }}
+                                                    {!! nl2br($list['title']) !!}
                                                 </span>
                                             </p>
                                         </div>

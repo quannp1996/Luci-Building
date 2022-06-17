@@ -123,12 +123,16 @@ const emagazine = new Vue({
         },
 
         setupMModule: function(module){
+            if (typeof module.items != 'undefined') {
+                Object.keys(module.items).forEach(function(json){
+                    if(typeof module.items[json].imageLink == 'undefined'){
+                        module.items[json].imageLink = `${ENV.PUBLIC_URL}/upload/default.png`
+                    }
+                })
+            }
             this.modules.push({
                 ... JSON.parse(JSON.stringify(templateData[module.type])),
-                ...module,
-                old: {
-                    ... JSON.parse(JSON.stringify(module)),
-                },
+                ... module,
             })
         },
 

@@ -42,7 +42,7 @@
                         <label>Ảnh</label>
                         <div class="input-group">
                             <input type="hidden" v-model="module.image"
-                                v-bind:name="['module['+ module.key +'][items][' + index + '][image]']" />
+                                v-bind:name="['module['+ module.key +'][image]']" />
 
                             <input 
                                 class="form-control" style="display: none"
@@ -92,17 +92,19 @@
                                 <tbody>
                                     <tr v-for="(item, index) in module.items">
                                         <td>
-                                            <input type="text"
-                                                v-model="item.title"
+                                            <textarea 
+                                                rows="2"
                                                 class="form-control"
-                                                v-bind:name="['module['+ module.key +'][items][' + index + '][title]']" />
+                                                v-model="item.title"
+                                                v-bind:name="['module['+ module.key +'][items][' + index + '][title]']"
+                                            ></textarea>
                                             <input type="hidden" class="form-control"
                                                 v-model="item.key"
                                                 v-bind:name="['module['+ module.key +'][items][' + index + '][key]']"
                                                 id=""
                                             >
                                         </td>
-                                        <td>
+                                        <td style="background-color:rgba(255,0,0,0.3);" @click="triggerFile(item, 'imageLink')">
                                             <input type="hidden" v-model="item.image"
                                                 v-bind:name="['module['+ module.key +'][items][' + index + '][image]']" />
 
@@ -112,8 +114,7 @@
                                                 class="form-control" style="display: none"
                                                 accept="image/png, image/jpeg, image/jpg" />
 
-                                            <img class="pointer" v-bind:src="item.imageLink" style="width: 100px"
-                                                @click="triggerFile(item, 'imageLink')" />
+                                            <img class="pointer" v-bind:src="item.imageLink" style="width: 100px" />
                                         </td>
                                         <td>
                                             <button type="button" @click="delteItem(module, item)" class="btn btn-danger btn-sm">
