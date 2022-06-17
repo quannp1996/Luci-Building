@@ -31,23 +31,10 @@
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>
-                                                {{ @$item->desc->title }} &nbsp;
+                                                {{ @$item->title }} &nbsp;
                                             </td>
                                             <td>{!! $item->created_at ? $item->created_at->format('d/m/Y H:i') : '---' !!}</td>
                                             <td>
-                                                @if ($item->status == 2)
-                                                    <a href="javascript:void(0)" class="btn text-primary"
-                                                        data-href="{{ route('admin_emagazine_disable', $item->id) }}"
-                                                        onclick="admin.updateStatus(this,{{ $item->id }},1)"
-                                                        title="Đang hiển thị, Click để ẩn">
-                                                        <i class="fa fa-eye"></i></a>
-                                                @else
-                                                    <a href="javascript:void(0)" class="btn text-danger"
-                                                        data-href="{{ route('admin_emagazine_enable', $item->id) }}"
-                                                        onclick="admin.updateStatus(this,{{ $item->id }},2)"
-                                                        title="Đang ẩn, Click để hiển thị">
-                                                        <i class="fa fa-eye"></i></a>
-                                                @endif
                                                 <a href="{{ route('admin_emagazine_edit', $item->id) }}"
                                                     class="btn text-primary">
                                                     <i class="fa fa-pencil"></i></a>

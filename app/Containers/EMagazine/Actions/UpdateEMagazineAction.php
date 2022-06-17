@@ -20,15 +20,6 @@ class UpdateEMagazineAction extends Action
             $data['module'] = '';
         }
         $emagazine = app(UpdateEMagazineTask::class)->run($id, $data);
-        $emagazineDescription = [];
-        if(!empty($emagazineData['emagazine_description'])){
-            foreach($emagazineData['emagazine_description'] AS $key => $emagzineDesc){
-                $emagazineDescription[$key] = array_merge($emagzineDesc, [
-                    'emagazine_id' => $emagazine->id,
-                    'language_id' => $key
-                ]);
-            }
-            app(SyncEMagazineDescriptionTask::class)->run($emagazineDescription, $id);
-        }
+        return $emagazine;
     }
 }

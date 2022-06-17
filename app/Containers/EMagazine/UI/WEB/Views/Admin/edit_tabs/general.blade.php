@@ -16,6 +16,16 @@
                                         value="{{ old('title', @$data['title']) }}">
                                 </div>
                             </div>
+                            @if (!empty($data))
+                                <div class="form-group">
+                                    <label for="title">Đường dẫn</label>
+                                    <div class="input-group">
+                                        <a href="{{ config('app.url').route('web.emagazine.detail', ['id' => $data['id'], 'slug' => !empty($data['title']) ? \StringLib::slug($data['title']) : 'emagaizne'], false) }}" target="_blank">
+                                            {{ config('app.url').route('web.emagazine.detail', ['id' => $data['id'], 'slug' => !empty($data['title']) ? \StringLib::slug($data['title']) : 'emagaizne'], false) }}
+                                        </a>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

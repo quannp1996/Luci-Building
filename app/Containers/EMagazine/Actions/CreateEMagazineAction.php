@@ -18,16 +18,9 @@ class CreateEMagazineAction extends Action
             ]);
             if(!empty($data['module']) && is_array($data['module'])) $data['module'] = json_encode($data['module'], JSON_HEX_TAG);
             $emagazine = app(CreateEMagazineTask::class)->run($data);
-            $emagazineDescription = [];
-            foreach($emagazineData['emagazine_description'] AS $key => $emagzineDesc){
-                $emagazineDescription[$key] = array_merge($emagzineDesc, [
-                    'emagazine_id' => $emagazine->id,
-                    'language_id' => $key
-                ]);
-            }
-            app(SyncEMagazineDescriptionTask::class)->run($emagazineDescription, $emagazine->id);
             return $emagazine;
         }catch(\Exception $e){
+            dd($e->getMessage());
             throw new CreateResourceFailedException();
         }
         

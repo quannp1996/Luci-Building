@@ -22,13 +22,9 @@ class DeleteDisplayEMagazineTask extends Task
     {
         try {
             if(is_array($ids)){
-                return $this->repository->whereIn('id', $ids)->update([
-                    'status' => EnumEmagzine::DELETE
-                ]);
+                return $this->repository->whereIn('_id', $ids)->delete();
             }else{
-                return $this->repository->where('id', $ids)->update([
-                    'status' => EnumEmagzine::DELETE
-                ]);
+                return $this->repository->where('_id', $ids)->delete();
             }
         }
         catch (Exception $exception) {

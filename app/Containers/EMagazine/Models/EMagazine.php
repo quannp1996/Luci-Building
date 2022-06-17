@@ -41,8 +41,15 @@ class EMagazine extends Model
         return ImageURL::getImageUrl($this->$column, 'emagazine', $size);
     }
 
+    public function link()
+    {
+        return route('web.emagazine.detail', ['id' => $this->id, 'slug' => $this->title]);
+    }
+
+
     public function getSeoImageUrl()
     {
+        
         if($this->image_seo) return ImageURL::getImageUrl($this->image_seo, 'emagazine', 'seo').'?v='.rand();
         return ImageURL::getImageUrl($this->image, 'emagazine', 'seo').'?v='.rand();
     }
