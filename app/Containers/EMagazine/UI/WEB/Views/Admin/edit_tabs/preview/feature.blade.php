@@ -88,7 +88,7 @@
                                                 @change="chageImage(item, 'imageLink' ,$event)"
                                             />
 
-                                            <img class="pointer" v-bind:src="item.image" style="width: 100px"
+                                            <img class="pointer" v-bind:src="item.imageLink" style="width: 100px"
                                                 @click="triggerFile(item, 'imageLink')" v-if="item.imageLink" />
                                         </td>
                                         <td>
