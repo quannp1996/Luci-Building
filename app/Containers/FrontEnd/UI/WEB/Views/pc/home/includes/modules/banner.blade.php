@@ -1,6 +1,6 @@
 @if (!empty($module))
     <section class="section dark" id="section_2000709245">
-        <div class="bg section-bg fill bg-fill bg-loaded" style="background-image: url('{{ $module['imageLink'] }}')">
+        <div class="bg section-bg fill bg-fill bg-loaded" style="background-image: url('{{ @$module['imageLink'] }}')">
             <div class="section-bg-overlay absolute fill"></div>
         </div>
         <div class="section-content relative">

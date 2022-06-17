@@ -4,7 +4,10 @@
             <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
                 <div id="logo" class="flex-col logo"> 
                     <a href="{{ route('web.home.index') }}">
-                        <img src="{{ ImageURL::getImageUrl(@$settings['website']['logo'], 'setting', '') }}" alt="">
+                        <img style="
+                        width: 100px;
+                        height: 66px;
+                    " src="{{ ImageURL::getImageUrl(@$settings['website']['logo'], 'setting', '') }}" alt="">
                     </a>
                 </div>
                 <div class="flex-col show-for-medium flex-left">

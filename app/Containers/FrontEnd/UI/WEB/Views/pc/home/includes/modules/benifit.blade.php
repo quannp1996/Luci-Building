@@ -17,7 +17,7 @@
                                 <div class="box has-hover has-hover box-text-bottom">
                                     <div class="box-image" style="width: 41%;">
                                         <div class="">
-                                            <img width="192" height="192" src="{{ $list['imageLink'] }}"
+                                            <img width="192" height="192" src="{{ @$list['imageLink'] }}"
                                                 class="attachment-original size-original" alt="" />
                                         </div>
                                     </div>

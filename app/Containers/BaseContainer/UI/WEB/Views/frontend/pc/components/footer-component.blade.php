@@ -98,8 +98,8 @@
     </div>
 </div>
 <div class="hotline">
-    <a href="tel:0902239589" class="hotline__link" data-wpel-link="internal">
-        <span class="hotline__text">0902.239.589 </span><span class="hotline__icon"><i
+    <a href="tel:{{ @$settings['contact']['hotline'] }}" class="hotline__link" data-wpel-link="internal">
+        <span class="hotline__text">{{ @$settings['contact']['hotline'] }}</span><span class="hotline__icon"><i
                 class="icon-phone faa-ring faa-slow animated"></i></span>
     </a>
 </div>

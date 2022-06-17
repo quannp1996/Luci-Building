@@ -7,7 +7,7 @@
                     <div class="col-inner">
                         <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_217548346">
                             <div class="img-inner dark">
-                                <img width="513" height="511" src="{{ $module['imageLink'] }}"
+                                <img width="513" height="511" src="{{ @$module['imageLink'] }}"
                                     class="attachment-original size-original" alt=""
                                     sizes="(max-width: 513px) 100vw, 513px" />
                             </div>
@@ -34,7 +34,7 @@
                                         <div class="icon">
                                             <div class="icon-inner">
                                                 <?xml version="1.0" encoding="UTF-8"?>
-                                                <img src="{{ $list['imageLink'] }}" alt="">
+                                                <img src="{{ @$list['imageLink'] }}" alt="">
                                             </div>
                                         </div>
                                     </div>

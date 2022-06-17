@@ -12,13 +12,6 @@
                             ])
                         @endif
                     @endforeach
-                    {{-- @include('frontend::pc.home.includes.modules.banner')
-            @include('frontend::pc.home.includes.modules.benifit')
-            @include('frontend::pc.home.includes.modules.partner')
-            @include('frontend::pc.home.includes.modules.feature')
-            @include('frontend::pc.home.includes.modules.feature_2')
-            @include('frontend::pc.home.includes.modules.why')
-            @include('frontend::pc.home.includes.modules.app') --}}
                     @include('frontend::pc.home.includes.form')
                 </div>
             </div>

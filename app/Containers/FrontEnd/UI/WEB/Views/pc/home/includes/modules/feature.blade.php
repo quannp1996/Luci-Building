@@ -29,7 +29,7 @@
                                         <div class="icon">
                                             <div class="icon-inner" style="color: rgb(255, 255, 255);">
                                                 <?xml version="1.0" encoding="UTF-8"?>
-                                                <img src="{{ $list['imageLink'] }}" alt="">
+                                                <img src="{{ @$list['imageLink'] }}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                     <div class="col-inner text-center">
                         <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_502235348">
                             <div class="img-inner dark">
-                                <img width="301" height="585" src="{{ $module['imageLink'] }}"
+                                <img width="301" height="585" src="{{ @$module['imageLink'] }}"
                                     class="attachment-original size-original" alt=""
                                     sizes="(max-width: 301px) 100vw, 301px" />
                             </div>
@@ -69,7 +69,7 @@
                                         <div class="icon">
                                             <div class="icon-inner" style="color: rgb(255, 255, 255);">
                                                 <?xml version="1.0" encoding="UTF-8"?>
-                                                <img src="{{ $list['imageLink'] }}" alt="">
+                                                <img src="{{ @$list['imageLink'] }}" alt="">
                                             </div>
                                         </div>
                                     </div>
