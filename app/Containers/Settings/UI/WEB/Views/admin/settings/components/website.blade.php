@@ -69,34 +69,6 @@
                                     name="website{{$langKey}}[address_hcm]">{{ old('website'.$langKey.'.address_hcm', @$data['website'.$langKey]['address_hcm'])}}</textarea>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for=""><strong>Cấu hình Link</strong></label>
-                        </div>
-                        <div class="form-group">
-                            <label for="site_name_{{$it_lang['name']}}">Điều kiện và chính sách sử dụng <span class="small text-danger">({{$it_lang['name']}})</span></label>
-                            <div class="input-group">
-                                <input type="text"
-                                       class="form-control{{ $errors->has('website'.$langKey.'.terms_and_policies') ? ' is-invalid' : '' }}"
-                                       id="terms_and_policies_{{$langKey}}"
-                                       name="website{{$langKey}}[terms_and_policies]"
-                                       value="{{ old('website'.$langKey.'.terms_and_policies', @$data['website'.$langKey]['terms_and_policies']) }}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="site_name_{{$it_lang['name']}}">Chính sách thanh toán và điều khoản dịch vụ <span class="small text-danger">({{$it_lang['name']}})</span></label>
-                            <div class="input-group">
-                                <input type="text"
-                                       class="form-control{{ $errors->has('website'.$langKey.'.payment_policy') ? ' is-invalid' : '' }}"
-                                       id="payment_policy_{{$langKey}}"
-                                       name="website{{$langKey}}[payment_policy]"
-                                       value="{{ old('website'.$langKey.'.payment_policy', @$data['website'.$langKey]['payment_policy']) }}">
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -121,14 +93,14 @@
             </div>
         </div>
     </div>
-    {{-- <div class="row">
+    <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="title">Logo Footer</label>
                 <input type="file" id="logo_footer" name="website[logo_footer]" class="dropify form-control" data-show-remove="false" data-default-file="{{ ImageURL::getImageUrl(@$data['website']['logo_footer'], 'setting', 'original') }}">
             </div>
         </div>
-    </div> --}}
+    </div>
 
     {{-- <div class="row">
         <div class="col-sm-4">

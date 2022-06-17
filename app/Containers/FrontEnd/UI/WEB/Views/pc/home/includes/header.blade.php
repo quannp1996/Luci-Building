@@ -3,6 +3,9 @@
         <div id="masthead" class="header-main hide-for-sticky">
             <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
                 <div id="logo" class="flex-col logo"> 
+                    <a href="{{ route('web.home.index') }}">
+                        <img src="{{ ImageURL::getImageUrl(@$settings['website']['logo'], 'setting', '') }}" alt="">
+                    </a>
                 </div>
                 <div class="flex-col show-for-medium flex-left">
                    
@@ -16,11 +19,7 @@
                             class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-355"><a
                                 href="{{ route('web.lienhe.index') }}" class="nav-top-link" data-wpel-link="internal">Liên
                                 hệ</a></li>
-                        <li id="menu-item-356"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-356"><a
-                                href="https://luci.vn/tuyen-dung/" class="nav-top-link"
-                                data-wpel-link="internal">Tuyển dụng</a></li>
-                        <li class="header-search-form search-form html relative has-icon">
+                        {{-- <li class="header-search-form search-form html relative has-icon">
                             <div class="header-search-form-wrapper">
                                 <div class="searchform-wrapper ux-search-box relative form-flat is-normal">
                                     <form role="search" method="get" class="searchform"
@@ -45,7 +44,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <div class="flex-col show-for-medium flex-right">

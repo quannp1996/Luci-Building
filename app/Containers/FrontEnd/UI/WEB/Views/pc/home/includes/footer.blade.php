@@ -8,13 +8,8 @@
                         <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_582286090">
                             <div class="img-inner dark">
                                 <img width="612" height="403"
-                                    src="../../wp-content/uploads/2019/11/logo.png"
-                                    class="attachment-original size-original" alt="" loading="lazy"
-                                    srcset="
-                                    https://luci.vn/wp-content/uploads/2019/11/logo.png         612w,
-                                    https://luci.vn/wp-content/uploads/2019/11/logo-607x400.png 607w,
-                                    https://luci.vn/wp-content/uploads/2019/11/logo-600x395.png 600w
-                                "
+                                    src="{{ ImageURL::getImageUrl(@$settings['website']['logo_footer'], 'setting', '') }}"
+                                    class="attachment-original size-original" alt=""
                                     sizes="(max-width: 612px) 100vw, 612px" />
                             </div>
                             <style scope="scope">
@@ -23,7 +18,7 @@
                                 }
                             </style>
                         </div>
-                        {!! nl2br($settings['website']['description']) !!}
+                        {!! nl2br(@$settings['website']['description'] ?? '') !!}
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">
                                 <div class="icon">
@@ -33,7 +28,7 @@
                             </div>
                             <div class="icon-box-text last-reset">
                                 <a href="tel:{{ $settings['contact']['hotline'] }}" data-wpel-link="internal">Phone:
-                                    <b>{{ $settings['contact']['hotline'] }}</b></a>
+                                    <b>{{ @$settings['contact']['hotline'] }}</b></a>
                             </div>
                         </div>
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
@@ -44,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset"><a href="mailto:info@luci.vn">Email:
-                                {{ $settings['contact']['email'] }} </a></div>
+                                <b>{{ $settings['contact']['email'] }} </b></a></div>
                         </div>
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">

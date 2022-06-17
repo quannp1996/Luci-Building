@@ -18,7 +18,6 @@
                     padding-bottom: 30px;
                     min-height: 300px
                 }
-
                 #section_103927741 .section-bg.bg-loaded {
                     background-image: url(https://luci.vn/wp-content/uploads/2019/11/lien-he-bg.jpg)
                 }
@@ -34,8 +33,8 @@
                         <div class="page-title-inner container align-center flex-row medium-flex-wrap">
                             <div class="title-content flex-col flex-right text-right medium-text-center">
                                 <div class="title-breadcrumbs pb-half pt-half">
-                                    <nav class="woocommerce-breadcrumb breadcrumbs "><a href="https://luci.vn/"
-                                            data-wpel-link="internal">Trang chủ</a> <span class="divider">/</span>
+                                    <nav class="woocommerce-breadcrumb breadcrumbs ">
+                                        <a href="https://luci.vn/" data-wpel-link="internal">Trang chủ</a> <span class="divider">/</span>
                                         Liên hệ
                                     </nav>
                                 </div>
@@ -59,7 +58,7 @@
                                 </div>
                                 <div class="icon-box-text last-reset">
                                     <p><a href="tel:0902239589" data-wpel-link="internal">Phone:
-                                            <b>{{ $settings['contact']['hotline'] }}</b></a></p>
+                                            <b>{{ @$settings['contact']['hotline'] }}</b></a></p>
                                 </div>
                             </div>
                             <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
@@ -71,8 +70,8 @@
                                 </div>
                                 <div class="icon-box-text last-reset">
                                     <p>
-                                        <a href="mailto:{{ $settings['contact']['email'] }}">Email:
-                                            <b>{{ $settings['contact']['email'] }}</b> </a>
+                                        <a href="mailto:{{ @$settings['contact']['email'] }}">Email:
+                                            <b>{{ @$settings['contact']['email'] }}</b> </a>
                                     </p>
                                 </div>
                             </div>
@@ -84,8 +83,8 @@
                                     </div>
                                 </div>
                                 <div class="icon-box-text last-reset">
-                                    <p><b>Trụ sở Hà Nội: {{ $settings['website']['address'] }}</b></p>
-                                    <p><b>Văn phòng Hồ Chí Minh: {{ $settings['website']['address_hcm'] }}</b></p>
+                                    <p><b>Trụ sở Hà Nội: {{ @$settings['website']['address'] }}</b></p>
+                                    <p><b>Văn phòng Hồ Chí Minh: {{ @$settings['website']['address_hcm'] }}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +165,7 @@
         <section class="section" id="section_123308484">
             <div class="bg section-bg fill bg-fill bg-loaded"></div>
             <div class="section-content relative">
-                {!! $settings['other']['gg_map'] !!}
+                {!! @$settings['other']['gg_map'] !!}
             </div>
             <style scope="scope">
                 #section_123308484 {
