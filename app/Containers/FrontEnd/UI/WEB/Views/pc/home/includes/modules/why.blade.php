@@ -40,9 +40,8 @@
                                             <div class="col-inner">
                                                 <p>
                                                     <img loading="lazy" class="alignnonewp-image-850"
-                                                        src="../../wp-content/uploads/2019/11/chi-tiet-sp-icon1.png"
+                                                        src="{{ @$list['imageLink'] }}"
                                                         alt="" width="127" height="127"
-                                                        srcset="https://luci.vn/wp-content/uploads/2019/11/chi-tiet-sp-icon1.png 192w, https://luci.vn/wp-content/uploads/2019/11/chi-tiet-sp-icon1-100x100.png 100w"
                                                         sizes="(max-width: 127px) 100vw, 127px" />
                                                 </p>
                                                 <p class="uppercase">
