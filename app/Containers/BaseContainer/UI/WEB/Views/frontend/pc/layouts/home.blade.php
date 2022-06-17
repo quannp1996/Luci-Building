@@ -316,7 +316,13 @@ Với tốc độ đô thị hóa như hiện nay, việc quản lý các tòa n
 
 <body class="home">
     {!! $settings['other']['script_body'] !!}
-    @yield('content')
+    <div id="wrapper">
+        @include('frontend::pc.home.includes.header')
+        <main id="main">
+            @yield('content')
+        </main>
+        @include('frontend::pc.home.includes.footer')
+    </div>
     <x-footer-component :menus="$menus"></x-footer-component>
 </body>
 @stack('js_bot_all')

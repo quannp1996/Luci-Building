@@ -23,8 +23,7 @@
                                 }
                             </style>
                         </div>
-                        Luci là đơn vị tiên phong trong lĩnh vực Đô thị thông minh tại Việt Nam. Liên hệ ngay với
-                        Luci để được hỗ trợ tốt nhất.
+                        {!! nl2br($settings['website']['description']) !!}
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">
                                 <div class="icon">
@@ -33,8 +32,8 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-                                <a href="tel:0902.239.589" data-wpel-link="internal">Phone:
-                                    <b>0902.239.589</b></a>
+                                <a href="tel:{{ $settings['contact']['hotline'] }}" data-wpel-link="internal">Phone:
+                                    <b>{{ $settings['contact']['hotline'] }}</b></a>
                             </div>
                         </div>
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
@@ -45,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset"><a href="mailto:info@luci.vn">Email:
-                                    info@luci.vn </a></div>
+                                {{ $settings['contact']['email'] }} </a></div>
                         </div>
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">
@@ -54,8 +53,7 @@
                                             style="font-size: 15px;"></i></div>
                                 </div>
                             </div>
-                            <div class="icon-box-text last-reset"><b>Trụ sở Hà Nội: </b>Tầng 6, Zen Tower, 12 Khuất
-                                Duy Tiến, Thanh Xuân Trung, Thanh Xuân, Hà Nội<b></b></div>
+                            <div class="icon-box-text last-reset"><b>Trụ sở Hà Nội: </b>{{ $settings['website']['address'] }}</div>
                         </div>
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">
@@ -64,8 +62,7 @@
                                             style="font-size: 15px;"></i></div>
                                 </div>
                             </div>
-                            <div class="icon-box-text last-reset"><b>Văn phòng Hồ Chí Minh: </b>Tầng 5, số 26 đường
-                                C18, quận Tân Bình, Hồ Chí Minh<b> </b></div>
+                            <div class="icon-box-text last-reset"><b>Văn phòng Hồ Chí Minh: </b>{{ $settings['website']['address_hcm'] }}<b> </b></div>
                         </div>
                         <div class="social-icons follow-icons" style="font-size: 168%;">
                             <a href="https://www.facebook.com/luci.jsc/" target="_blank" data-label="Facebook"
