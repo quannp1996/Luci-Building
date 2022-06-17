@@ -26,11 +26,9 @@ class SaveMenuDescTask extends Task
       $menuDescCollection = collect($menuDesc['menu_desc'])->keyBy('language_id')->toArray();
       $updateMenuDesc = [];
       $inserts = [];
-      // dd($menuDescData,$menuDescCollection);
-
       foreach ($menuDescCollection as $k => $mn) {
         if (isset($menuDescData[$k])) {
-          $updateMenuDesc[$menuDescData[$k]['id']] = $menuDescCollection[$mn['language_id']];
+          $updateMenuDesc[@$menuDescData[$k]['id'] ?? $menuDescData[$k]['_id']] = $menuDescCollection[$mn['language_id']];
         }else {
           $temp_arr = $menuDescCollection[$mn['language_id']];
           $temp_arr['menu_id'] = $menu->id;
@@ -38,12 +36,15 @@ class SaveMenuDescTask extends Task
         }
       }
       if (!empty($updateMenuDesc)) {
-        $this->repository->updateMultiple($updateMenuDesc);
+        $this->repository->where('menu_id', $menu->id)->delete();
+        foreach($updateMenuDesc AS &$item){
+          $item['menu_id'] = $menu->id;
+        }
+        $this->repository->insert($updateMenuDesc);
       }
       if (!empty($inserts)) {
         $this->repository->getModel()->insert($inserts);
       }
-
     } catch (Exception $exception) {
       throw $exception;
     }

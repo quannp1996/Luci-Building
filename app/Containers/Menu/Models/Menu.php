@@ -16,7 +16,7 @@ class Menu extends Model
     use LangTrait, HasManyKeyBy;
 
     protected $table = 'menu';
-
+    
     protected $guarded = [];
 
     protected $attributes = [];

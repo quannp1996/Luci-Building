@@ -12,13 +12,13 @@
             <td>Số điện thoại</td>
             <td>{{ $contact->phone }}</td>
         </tr>
-        @foreach ($fields as $field)
+        {{-- @foreach ($fields as $field)
             <tr>
                 <td>{{ $field->lable }}</td>
                 <td>{{ $contact->fields->filter(function($item) use($field) {
                     return $item->field_id == $field->id;
                 })->first()->value }}</td>
             </tr>
-        @endforeach
+        @endforeach --}}
     </table>
 @endif

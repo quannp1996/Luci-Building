@@ -78,7 +78,7 @@ class CreateContactRequest extends Request
     public function messages()
     {
         $baseMessage = [
-            'shop_name.required' => 'Tên Shop là trường bắt buộc',
+            'shop_name.required' => 'Họ và tên là trường bắt buộc',
             'email.required' => 'Email là trường bắt buộc',
             'email.email' => 'Email không đúng định dạng',
             'phone.required' => 'Số điện thoại là trường bắt buộc',
