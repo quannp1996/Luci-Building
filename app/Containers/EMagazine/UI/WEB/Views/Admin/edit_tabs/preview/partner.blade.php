@@ -41,17 +41,19 @@
                     <div class="form-group">
                         <label>Ảnh</label>
                         <div class="input-group">
-                            <input type="hidden" v-model="module.old.mainImage"
+                            <input type="hidden" v-model="module.image"
                                 v-bind:name="['module['+ module.key +'][items][' + index + '][image]']" />
 
-                            <input v-bind:name="['module['+ module.key +'][image]']"
-                                @change="chageImage(module, 'image', $event)"
-                                v-bind:id="[module.key + 'image' ]" type="file"
+                            <input 
                                 class="form-control" style="display: none"
-                                accept="image/png, image/jpeg, image/jpg" />
+                                accept="image/png, image/jpeg, image/jpg" 
+                                v-bind:name="['module['+ module.key +'][image]']"
+                                v-bind:id="[module.key + 'imageLink' ]" type="file"
+                                @change="chageImage(module, 'imageLink', $event)"
+                            />
 
                             <img class="pointer" v-bind:src="module.imageLink" style="width: 100px"
-                                @click="triggerFile(module, 'image')" v-if="module.image" />
+                                @click="triggerFile(module, 'imageLink')" v-if="module.image" />
                         </div>
                     </div>
 
@@ -59,22 +61,21 @@
                         <label>Ảnh Nền</label>
                         <div class="input-group">
                             <input type="hidden" 
-                                v-model="module.image"
+                                v-model="module.image_bg"
                                 v-bind:name="['module['+ module.key +'][image_bg]']" 
                             />
                             <input 
-                                v-bind:name="['module['+ module.key +'][image_bg]']"
-                                @change="chageImage(module, 'image_bg', $event)"
-                                v-bind:id="[module.key + 'image_bg' ]" type="file"
                                 class="form-control" style="display: none"
-                                accept="image/png, image/jpeg, image/jpg" />
-                            <img class="pointer" v-bind:src="module.image_bgLink" style="width: 100px"
-                                @click="triggerFile(module, 'image_bg')" v-if="module.image_bg" />
+                                accept="image/png, image/jpeg, image/jpg" 
+                                v-bind:name="['module['+ module.key +'][image_bg]']"
+                                v-bind:id="[module.key + 'image_bgLink' ]" type="file"
+                                @change="chageImage(module, 'image_bgLink', $event)"
+                            />
+                            <img class="pointer" v-bind:src="module.image_bgLink ?? module.baseLink" style="width: 100px"
+                                @click="triggerFile(module, 'image_bgLink')" v-if="module.image_bg" />
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label>Items</label>
                         <button type="button" @click="addItem(module)" class="btn btn-success btn-sm">
                             <i class="fa fa-plus"></i>
                             Thêm
@@ -111,8 +112,8 @@
                                                 class="form-control" style="display: none"
                                                 accept="image/png, image/jpeg, image/jpg" />
 
-                                            <img class="pointer" v-bind:src="item.image" style="width: 100px"
-                                                @click="triggerFile(item, 'imageLink')" v-if="item.imageLink" />
+                                            <img class="pointer" v-bind:src="item.imageLink" style="width: 100px"
+                                                @click="triggerFile(item, 'imageLink')" />
                                         </td>
                                         <td>
                                             <button type="button" @click="delteItem(module, item)" class="btn btn-danger btn-sm">

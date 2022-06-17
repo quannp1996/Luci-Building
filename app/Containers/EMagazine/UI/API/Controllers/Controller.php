@@ -46,7 +46,7 @@ class Controller extends ApiController
      */
     public function getAllEMagazines(GetAllEMagazinesRequest $request)
     {
-        $emagazines = Apiato::call('EMagazine@GetAllEMagazinesAction', [$request]);
+        $emagazines = Apiato::call('EMagazine@GetAllEMagazinesAction', [$request->all()]);
 
         return $this->transform($emagazines, EMagazineTransformer::class);
     }

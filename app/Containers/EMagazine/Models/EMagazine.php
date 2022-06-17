@@ -67,7 +67,7 @@ class EMagazine extends Model
                     if(!empty($module['image_bg'])) $module['image_bgLink'] = ImageURL::getImageUrl($module['image_bg'], 'emagazine', '');
                     if(!empty($module['items'])){
                         foreach($module['items'] AS &$item){
-                            $item['imageLink'] = ImageURL::getImageUrl($item['image'], 'emagazine', '');
+                            if(!empty($item['image'])) $item['imageLink'] = ImageURL::getImageUrl($item['image'], 'emagazine', '');
                         }
                     }
                 }
@@ -76,6 +76,24 @@ class EMagazine extends Model
             return $this->module;
         }catch(\Exception $e){
             return '{}';
+        }
+    }
+
+    public function arrayModule(){
+        try{
+            $modules = json_decode($this->module, true);
+            foreach($modules AS &$module){
+                if(!empty($module['image'])) $module['imageLink'] = ImageURL::getImageUrl($module['image'], 'emagazine', '');
+                if(!empty($module['image_bg'])) $module['image_bgLink'] = ImageURL::getImageUrl($module['image_bg'], 'emagazine', '');
+                if(!empty($module['items'])){
+                    foreach($module['items'] AS &$item){
+                        if(!empty($item['image'])) $item['imageLink'] = ImageURL::getImageUrl($item['image'], 'emagazine', '');
+                    }
+                }
+            }
+            return $modules;
+        }catch(\Exception $e){
+            return '[]';
         }
     }
 
@@ -91,4 +109,17 @@ class EMagazine extends Model
             'id' => $this->id
         ] , $absolute);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::creating(function($model) {
+            $model->status = (int) $model->status;
+        });
+        self::updated(function($model) {
+            $model->status = (int) $model->status;
+        });
+    }
+
 }

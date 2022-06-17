@@ -9,18 +9,21 @@ const templateData = {
     'banner': {
         title: 'Banner',
         description: '',
+        baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
         imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         color: ''
     },
     'benifit': {
        title: 'LỢI NHUẬN',
+       baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
        items: [{... item}],
        color: ''
     },
     'partner': {
         title: 'ĐỐI TÁC',
         description: '',
+        baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
         imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
@@ -30,6 +33,7 @@ const templateData = {
     },
     'feature': {
         title: 'TÍNH NĂNG QUẢN LÍ',
+        baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
         imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         items: [{... item}],
@@ -37,6 +41,7 @@ const templateData = {
     },
     'feature_2': {
         title: 'TÍNH NĂNG CƯ DÂN',
+        baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
         imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
@@ -46,6 +51,7 @@ const templateData = {
     },
     'why': {
         title: 'TẠI SAO NÊN CHỌN CHÚNG TÔI ?',
+        baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         items: [{... item}],
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
@@ -53,6 +59,7 @@ const templateData = {
     },
     'app': {
         title: 'APP QUẢNG CÁO',
+        baseLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image: `${ENV.PUBLIC_URL}/upload/default.png`,
         imageLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,

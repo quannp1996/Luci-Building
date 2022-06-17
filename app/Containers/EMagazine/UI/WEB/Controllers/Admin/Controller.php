@@ -37,7 +37,7 @@ class Controller extends AdminController
     public function listEmagazine(ListEMagazineRequest $request)
     {
         app(CreateBreadcrumbAction::class)->run('list', $this->title);
-        $emagazines = app(GetAllEMagazinesAction::class)->run($request, EnumEmagzine::PERPAGEE, ['desc']);
+        $emagazines = app(GetAllEMagazinesAction::class)->run($request->all(), EnumEmagzine::PERPAGEE, ['desc']);
         return view('emagazine::Admin.list', [
             'request' => $request,
             'data' => $emagazines,
