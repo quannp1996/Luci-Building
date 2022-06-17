@@ -10,6 +10,14 @@
     <div class="row">
         <div class="col-sm-9">
             <div class="form-group">
+                <label for="gg_map">IFrame Google MAP</label>
+                <textarea rows="9" class="form-control{{ $errors->has('gg_map') ? ' is-invalid' : '' }}" id="gg_map" name="other[gg_map]">{{ old('other.gg_map', isset($data['other']['gg_map']) ? $data['other']['gg_map'] : '') }}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="form-group">
                 <label for="script_head">Code nhúng Head</label>
                 <textarea rows="9" class="form-control{{ $errors->has('script_head') ? ' is-invalid' : '' }}" id="script_head" name="other[script_head]">{{ old('other.script_head', isset($data['other']['script_head']) ? $data['other']['script_head'] : '') }}</textarea>
             </div>
@@ -23,20 +31,4 @@
             </div>
         </div>
     </div>
-{{--    <div class="row">--}}
-{{--        <div class="col-sm-9">--}}
-{{--            <div class="form-group">--}}
-{{--                <label for="embed_ggmap">Embeded GGMAP</label>--}}
-{{--                <textarea rows="9" class="form-control{{ $errors->has('embed_ggmap') ? ' is-invalid' : '' }}" id="embed_ggmap" name="embed_ggmap">{{ old('embed_ggmap', isset($data['embed_ggmap']) ? $data['embed_ggmap'] : '') }}</textarea>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-    {{--<div class="row">--}}
-    {{--<div class="col-sm-9">--}}
-    {{--<div class="form-group">--}}
-    {{--<label for="site_chatbot">Code nhúng Chatbot</label>--}}
-    {{--<textarea rows="9" class="form-control{{ $errors->has('site_chatbot') ? ' is-invalid' : '' }}" id="site_chatbot" name="site_chatbot">{{ old('site_chatbot', isset($data['site_chatbot']) ? $data['site_chatbot'] : '') }}</textarea>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
 </div>

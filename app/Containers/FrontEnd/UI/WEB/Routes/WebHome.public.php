@@ -15,6 +15,6 @@ Route::group(
     ],
     function ($router) {
         $router->get('/', ['as'   => 'web.home.index', 'uses' => 'Controller@index',]);
-        $router->get('/thank-you', ['as'   => 'web.thankyou.index', 'uses' => 'Controller@thankyou',]);
+        $router->get('/lien-he', ['as'   => 'web.lienhe.index', 'uses' => 'Controller@lienhe',]);
     }
 );

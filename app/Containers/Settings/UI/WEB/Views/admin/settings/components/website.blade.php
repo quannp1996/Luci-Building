@@ -1,19 +1,4 @@
 <div class="tab-pane active" id="website" role="tabpanel" aria-expanded="true">
-    {{-- <div class="row">
-        <div class="col-sm-9">
-            <div class=" card">
-                <div class="card-body row">
-                    <div class="col-md-6 col-sm-12 d-flex align-items-center">
-                        <label class="c-switch c-switch-label c-switch-primary">
-                            {!! Form::checkbox('website[down_for_constructions]', 1, old('website.down_for_constructions', isset($data['website']['down_for_constructions']) ? $data['website']['down_for_constructions'] : 0) == 1, ['class' => 'c-switch-input']) !!}
-                            <span class="c-switch-slider" data-checked="On" data-unchecked="Off"></span>
-                        </label>
-                        <span class="mb-2 ml-2">Dừng hoạt động</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <ul class="nav nav-tabs nav-underline nav-underline-primary mb-3" role="tablist">
         @foreach($langs as $it_lang)
             <li class="nav-item">
@@ -64,13 +49,24 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="address_{{$it_lang['name']}}">Địa chỉ <span
+                            <label for="address_{{$it_lang['name']}}">Địa chỉ Hà Nội<span
                                     class="small text-danger">({{$it_lang['name']}})</span></label>
                             <div class="input-group">
                                 <textarea
                                     class="form-control{{ $errors->has('website'.$langKey.'.address') ? ' is-invalid' : '' }}"
                                     id="address_{{$langKey}}"
                                     name="website{{$langKey}}[address]">{{ old('website'.$langKey.'.address', @$data['website'.$langKey]['address'])}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address_{{$it_lang['name']}}">Địa chỉ Hồ Chí Minh<span
+                                    class="small text-danger">({{$it_lang['name']}})</span></label>
+                            <div class="input-group">
+                                <textarea
+                                    class="form-control{{ $errors->has('website'.$langKey.'.address_hcm') ? ' is-invalid' : '' }}"
+                                    id="address_{{$langKey}}"
+                                    name="website{{$langKey}}[address_hcm]">{{ old('website'.$langKey.'.address_hcm', @$data['website'.$langKey]['address_hcm'])}}</textarea>
                             </div>
                         </div>
 

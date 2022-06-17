@@ -18,4 +18,9 @@ class Controller extends BaseFrontEndController
             'landingPage' => !empty($landingPages) ? $landingPages->first() : null
         ]);
     }
+
+    public function lienhe(GetAllEMagazinesAction $getAllEMagazinesAction)
+    {
+        return view('frontend::pc.home.contact');
+    }
 }
