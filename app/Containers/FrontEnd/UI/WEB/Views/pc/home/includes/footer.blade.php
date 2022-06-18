@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-                                <a href="tel:{{ $settings['contact']['hotline'] }}" data-wpel-link="internal">Phone:
+                                <a href="tel:{{ @$settings['contact']['hotline'] }}" data-wpel-link="internal">Phone:
                                     <b>{{ @$settings['contact']['hotline'] }}</b></a>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset"><a href="mailto:info@luci.vn">Email:
-                                <b>{{ $settings['contact']['email'] }} </b></a></div>
+                                <b>{{ @$settings['contact']['email'] }} </b></a></div>
                         </div>
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">
@@ -48,7 +48,7 @@
                                             style="font-size: 15px;"></i></div>
                                 </div>
                             </div>
-                            <div class="icon-box-text last-reset"><b>Trụ sở Hà Nội: </b>{{ $settings['website']['address'] }}</div>
+                            <div class="icon-box-text last-reset"><b>Trụ sở Hà Nội: </b>{{ @$settings['website']['address'] }}</div>
                         </div>
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">
@@ -57,7 +57,7 @@
                                             style="font-size: 15px;"></i></div>
                                 </div>
                             </div>
-                            <div class="icon-box-text last-reset"><b>Văn phòng Hồ Chí Minh: </b>{{ $settings['website']['address_hcm'] }}<b> </b></div>
+                            <div class="icon-box-text last-reset"><b>Văn phòng Hồ Chí Minh: </b>{{ @$settings['website']['address_hcm'] }}<b> </b></div>
                         </div>
                         <div class="social-icons follow-icons" style="font-size: 168%;">
                             <a href="https://www.facebook.com/luci.jsc/" target="_blank" data-label="Facebook"

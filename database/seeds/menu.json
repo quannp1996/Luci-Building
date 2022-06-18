@@ -46,8 +46,8 @@
 	{
 		"status": "1",
 		"sort_order": null,
-		"link": null,
-		"extra_link": "/page/edit/628f81979d9562ca7a04a4a8",
+		"link": "admin_emagazine_list",
+		"extra_link": null,
 		"type": "0",
 		"pid": "0",
 		"icon": null,
