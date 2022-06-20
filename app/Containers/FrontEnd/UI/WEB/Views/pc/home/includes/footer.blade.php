@@ -22,24 +22,24 @@
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">
                                 <div class="icon">
-                                    <div class="icon-inner"><i class="fas fa-phone-alt"
-                                            style="font-size: 15px;"></i></div>
+                                    <div class="icon-inner"><i class="fas fa-phone-alt" style="font-size: 15px;"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-                                <a href="tel:{{ $settings['contact']['hotline'] }}" data-wpel-link="internal">Phone:
+                                <a href="tel:{{ @$settings['contact']['hotline'] }}" data-wpel-link="internal">Phone:
                                     <b>{{ @$settings['contact']['hotline'] }}</b></a>
                             </div>
                         </div>
                         <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                             <div class="icon-box-img" style="width: 15px;">
                                 <div class="icon">
-                                    <div class="icon-inner"><i class="fas fa-envelope"
-                                            style="font-size: 15px;"></i></div>
+                                    <div class="icon-inner"><i class="fas fa-envelope" style="font-size: 15px;"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset"><a href="mailto:info@luci.vn">Email:
-                                <b>{{ $settings['contact']['email'] }} </b></a></div>
+                                    <b>{{ @$settings['contact']['email'] }} </b></a></div>
                         </div>
                         @if (!empty($settings['website']['address']))
                             <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
@@ -49,8 +49,9 @@
                                                 style="font-size: 15px;"></i></div>
                                     </div>
                                 </div>
-                                <div class="icon-box-text last-reset"><b>Trụ sở Hà Nội: </b>{{ $settings['website']['address'] }}</div>
-                            </div>    
+                                <div class="icon-box-text last-reset"><b>Trụ sở Hà Nội:
+                                    </b>{{ $settings['website']['address'] }}</div>
+                            </div>
                         @endif
                         @if (!empty($settings['website']['address_hcm']))
                             <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
@@ -60,8 +61,9 @@
                                                 style="font-size: 15px;"></i></div>
                                     </div>
                                 </div>
-                                <div class="icon-box-text last-reset"><b>Văn phòng Hồ Chí Minh: </b>{{ $settings['website']['address_hcm'] }}<b> </b></div>
-                            </div> 
+                                <div class="icon-box-text last-reset"><b>Văn phòng Hồ Chí Minh:
+                                    </b>{{ $settings['website']['address_hcm'] }}<b> </b></div>
+                            </div>
                         @endif
                         <div class="social-icons follow-icons" style="font-size: 168%;">
                             @if (!empty($settings['contact']['facebook']))
@@ -69,14 +71,14 @@
                                     rel="noopener noreferrer nofollow external" class="icon plain facebook tooltip"
                                     title="Theo dõi trên Facebook" data-wpel-link="external">
                                     <i class="icon-facebook"></i>
-                                </a>  
+                                </a>
                             @endif
                             @if (!empty($settings['contact']['youtube']))
                                 <a href="{{ $settings['contact']['youtube'] }}" target="_blank"
                                     rel="noopener noreferrer nofollow" data-label="YouTube"
                                     class="icon plain youtube tooltip" title="Theo dõi trên YouTube">
                                     <i class="icon-youtube"></i>
-                                </a> 
+                                </a>
                             @endif
                         </div>
                     </div>
@@ -99,14 +101,16 @@
                                 </li>
                                 <li id="menu-item-321"
                                     class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-321">
-                                    <a href="https://luci.vn/tin-tuc/" data-wpel-link="internal">Tin tức</a></li>
+                                    <a href="https://luci.vn/tin-tuc/" data-wpel-link="internal">Tin tức</a>
+                                </li>
                                 <li id="menu-item-322"
                                     class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-322">
                                     <a href="https://luci.vn/tuyen-dung/" data-wpel-link="internal">Tuyển dụng</a>
                                 </li>
                                 <li id="menu-item-323"
                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323">
-                                    <a href="https://luci.vn/lien-he/" data-wpel-link="internal">Liên hệ</a></li>
+                                    <a href="https://luci.vn/lien-he/" data-wpel-link="internal">Liên hệ</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

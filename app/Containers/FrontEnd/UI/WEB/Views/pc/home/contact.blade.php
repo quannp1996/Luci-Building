@@ -143,9 +143,9 @@
                                         </div>
                                         <div class="col pb-0 large-12">
                                             <div class="col-inner">
-                                                <input type="button" id="submit_contact" value="Gửi đi"
+                                                <input type="button" id="submit_contact" style="background-color: #f15a29;border-radius: 0 8px;" value="Gửi đi"
                                                     class="wpcf7-form-control wpcf7-submit button secondary"
-                                                    style="border-radius: 0 8px;">
+                                                >
                                             </div>
                                         </div>
                                     </div>

@@ -37,7 +37,7 @@
                                     </span>
                                 </div>
                                 <div class="flex-col">
-                                    <input type="button" id="submit_contact" value="Đăng ký" class="button secondary" />
+                                    <input style="background-color: #f15a29" type="button" id="submit_contact" value="Đăng ký" class="button secondary" />
                                 </div>
                             </div>
                             <div class="wpcf7-response-output wpcf7-display-none"></div>
