@@ -18,6 +18,14 @@
     <div class="row">
         <div class="col-sm-9">
             <div class="form-group">
+                <label for="gg_map_sm">IFrame Google MAP (Nhỏ)</label>
+                <textarea rows="9" class="form-control{{ $errors->has('gg_map_sm') ? ' is-invalid' : '' }}" id="gg_map_sm" name="other[gg_map_sm]">{{ old('other.gg_map_sm', isset($data['other']['gg_map_sm']) ? $data['other']['gg_map_sm'] : '') }}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="form-group">
                 <label for="script_head">Code nhúng Head</label>
                 <textarea rows="9" class="form-control{{ $errors->has('script_head') ? ' is-invalid' : '' }}" id="script_head" name="other[script_head]">{{ old('other.script_head', isset($data['other']['script_head']) ? $data['other']['script_head'] : '') }}</textarea>
             </div>

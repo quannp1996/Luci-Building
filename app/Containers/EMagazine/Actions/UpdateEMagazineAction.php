@@ -12,7 +12,7 @@ class UpdateEMagazineAction extends Action
     public function run(array $emagazineData = [], $id)
     {
         $data = Arr::only($emagazineData, [
-            'module', 'sort_order', 'status', 'title'
+            'module', 'sort_order', 'status', 'title', 'color'
         ]);
         if(!empty($data['module']) && is_array($data['module'])){
             $data['module'] = json_encode($data['module'], JSON_HEX_TAG | JSON_HEX_APOS);

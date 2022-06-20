@@ -8,7 +8,7 @@
                     @csrf
                     <div class="card-header d-flex">
                         <button
-                            class="btn btn-link">{{ __('menu::menu.edit_info', ['name' => $menu->desc->name]) }}</button>
+                            class="btn btn-link">{{ __('menu::menu.edit_info', ['name' => @$menu->desc->name]) }}</button>
                         <button type="submit" class="btn btn-primary ml-auto">{{ __('menu::menu.btn_update') }}</button>
                     </div>
                     <div class="card-body">

@@ -37,7 +37,7 @@ trait RecursiveTrait
   {
     $str = "";
     foreach ($menus as $key => $menuItem) {
-      $name = $menuItem['desc_lang']['name'];
+      $name = @$menuItem['desc_lang']['name'];
       $link = @$menuItem['desc_lang']['link'];
       $menuId = $menuItem['id'];
 
@@ -87,7 +87,7 @@ trait RecursiveTrait
     if (!empty($arr)) {
       foreach ( $arr as $k => $v ) {
         if ( ($v['parent_id'] ?? $v['pid']) == $pid) {
-            $name = $str . ( $v['desc_lang']['name'] ?? $v['title'] );
+            $name = $str . ( @$v['desc_lang']['name'] ?? @$v['title'] );
 
             $item = " <$tag value='{$v['id']}' ";
                 // Seletced category_id, check kiểu biến

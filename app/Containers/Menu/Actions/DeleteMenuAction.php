@@ -18,3 +18,4 @@ class DeleteMenuAction extends Action
         return $result;
     }
 }
+

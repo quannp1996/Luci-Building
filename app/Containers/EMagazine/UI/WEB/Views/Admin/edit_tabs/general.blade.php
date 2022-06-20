@@ -51,6 +51,13 @@
                                     placeholder="0" min="0" name="sort_order" id="sort_order"
                                     value="{{ old('sort_order', @$data->sort_order ?? 0) }}">
                             </div>
+                            <div class="form-group">
+                                <label class="control-label" for="color">Màu nền </label>
+                                <input type="color"
+                                    class="form-control {{ $errors->has('color') ? 'is-invalid' : '' }}"
+                                    name="color" id="color"
+                                    value="{{ old('color', @$data->color ?? '') }}">
+                            </div>
                         </div>
                     </div>
                 </div>

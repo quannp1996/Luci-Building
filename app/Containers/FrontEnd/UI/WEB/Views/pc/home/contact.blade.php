@@ -83,8 +83,12 @@
                                     </div>
                                 </div>
                                 <div class="icon-box-text last-reset">
-                                    <p><b>Trụ sở Hà Nội: {{ @$settings['website']['address'] }}</b></p>
-                                    <p><b>Văn phòng Hồ Chí Minh: {{ @$settings['website']['address_hcm'] }}</b></p>
+                                    @if (!empty(@$settings['website']['address']))
+                                        <p><b>Trụ sở Hà Nội: {{ @$settings['website']['address'] }}</b></p>  
+                                    @endif
+                                    @if ($settings['website']['address_hcm'])
+                                        <p><b>Văn phòng Hồ Chí Minh: {{ @$settings['website']['address_hcm'] }}</b></p> 
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -60,6 +60,17 @@
             #gap-1348935347 {
                 padding-top: 60px;
             }
+            .ss-chi-tiet-bg{
+                /* background-color: {{ @$landingPage->color }};
+                opacity: 0.77; */
+                background-image: url('{{ @$module['image_bgLink'] }}')
+            }
+            .ss-chi-tiet-bg:before{
+                background-color: {{ @$landingPage->color }};
+            }
+            .ss-chi-tiet-bg::after{
+                background-color: {{ @$landingPage->color }};
+            }
         </style>
     </div>
 @endif

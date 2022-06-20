@@ -11,8 +11,9 @@
     <link rel="pingback" href="https://luci.vn/xmlrpc.php" />
     <meta http-equiv="content-language" content="vi" />
     <link rel="alternate" href="index.html" hreflang="vi" />
-    <title>Luci Building - LUCI</title>
-    <link rel="stylesheet" href="{{ asset('template/wp-content/cache/min/1/d920948c02523764f44b02b41385455c.css') }}" data-minify="1" />
+    <title>{{ @$settings['website']['site_name'] }}</title>
+    <link rel="stylesheet" href="{{ asset('template/wp-content/cache/min/1/d920948c02523764f44b02b41385455c.css') }}"
+        data-minify="1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="index.html" />
@@ -21,12 +22,9 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Luci Building - LUCI" />
     <meta property="og:description"
-        content="Phần mềm Quản lý khu đô thị thông minh
-Với tốc độ đô thị hóa như hiện nay, việc quản lý các tòa nhà, khu đô thị trở thành một bài toán khó khăn đối với Ban quản lý các tòa nhà cũng như chủ đầu tư bất động sản. Sự hỗ trợ từ phần mềm Quản lý khu đô thị thông minh Luci Building sẽ giúp giải quyết được những bài toán khó trên một cách tối ưu và hiệu quả nhất." />
-    <meta property="og:url" content="index.html" />
-    <meta property="og:site_name" content="LUCI" />
+        content="" />
+    <meta property="og:site_name" content="{{ @$settings['website']['site_name'] }}" />
     <meta property="og:image" content="../../wp-content/uploads/2019/11/building_PNG90.png" />
-    <meta property="og:image:secure_url" content="../../wp-content/uploads/2019/11/building_PNG90.png" />
     <meta property="og:image:width" content="386" />
     <meta property="og:image:height" content="284" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -34,46 +32,6 @@ Với tốc độ đô thị hóa như hiện nay, việc quản lý các tòa n
         content="Phần mềm Quản lý khu đô thị thông minh Với tốc độ đô thị hóa như hiện nay, việc quản lý các tòa nhà, khu đô thị trở thành một bài toán khó khăn đối với Ban quản lý các tòa nhà cũng như chủ đầu tư bất động sản. Sự hỗ trợ từ phần mềm Quản lý khu đô thị thông minh Luci Building sẽ giúp giải quyết được những bài toán khó trên một cách tối ưu và hiệu quả nhất." />
     <meta name="twitter:title" content="Luci Building - LUCI" />
     <meta name="twitter:image" content="../../wp-content/uploads/2019/11/building_PNG90.png" />
-    <script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">
-        {
-            "@context": "https://schema.org",
-            "@graph": [{
-                    "@type": "WebSite",
-                    "@id": "https://luci.vn/#website",
-                    "url": "https://luci.vn/",
-                    "name": "LUCI",
-                    "description": "Inspire Life With Technology",
-                    "potentialAction": {
-                        "@type": "SearchAction",
-                        "target": "https://luci.vn/?s={search_term_string}",
-                        "query-input": "required name=search_term_string"
-                    }
-                },
-                {
-                    "@type": "ImageObject",
-                    "@id": "https://luci.vn/product/luci-building/#primaryimage",
-                    "url": "https://luci.vn/wp-content/uploads/2019/11/building_PNG90.png",
-                    "width": 386,
-                    "height": 284
-                },
-                {
-                    "@type": "WebPage",
-                    "@id": "https://luci.vn/product/luci-building/#webpage",
-                    "url": "https://luci.vn/product/luci-building/",
-                    "inLanguage": "vi",
-                    "name": "Luci Building - LUCI",
-                    "isPartOf": {
-                        "@id": "https://luci.vn/#website"
-                    },
-                    "primaryImageOfPage": {
-                        "@id": "https://luci.vn/product/luci-building/#primaryimage"
-                    },
-                    "datePublished": "2020-01-02T08:13:07+00:00",
-                    "dateModified": "2020-08-24T10:20:14+00:00"
-                }
-            ]
-        }
-    </script>
     <link rel="dns-prefetch" href="http://use.fontawesome.com/" />
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/" />
     <link rel="alternate" type="application/rss+xml" title="Dòng thông tin LUCI &raquo;" href="https://luci.vn/feed/" />
@@ -206,19 +164,8 @@ Với tốc độ đô thị hóa như hiện nay, việc quản lý các tòa n
             cursor: pointer;
         }
     </style>
-    <script type="text/javascript" src="{{ asset('template/wp-includes/js/jquery/jquery.min9d52.js?ver=3.5.1') }}" id="jquery-core-js">
-    </script>
-    <link rel="https://api.w.org/" href="https://luci.vn/wp-json/" />
-    <link rel="alternate" type="application/json" href="https://luci.vn/wp-json/wp/v2/product/671" />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://luci.vn/xmlrpc.php?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://luci.vn/wp-includes/wlwmanifest.xml" />
-    <meta name="generator" content="WordPress 5.6.8" />
-    <meta name="generator" content="WooCommerce 3.8.3" />
-    <link rel="shortlink" href="https://luci.vn/?p=671" />
-    <link rel="alternate" type="application/json+oembed"
-        href="https://luci.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fluci.vn%2Fproduct%2Fluci-building%2F" />
-    <link rel="alternate" type="text/xml+oembed"
-        href="https://luci.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fluci.vn%2Fproduct%2Fluci-building%2F&amp;format=xml" />
+    <script type="text/javascript" src="{{ asset('template/wp-includes/js/jquery/jquery.min9d52.js?ver=3.5.1') }}"
+        id="jquery-core-js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170799243-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

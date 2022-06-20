@@ -63,7 +63,7 @@
                         <thead>
                             <tr>
                                 <th width="55">ID</th>
-                                <th>Tên Shop</th>
+                                <th>Họ tên</th>
                                 <th width="100">Email</th>
                                 <th width="125">Số điện thoại</th>
                                 <th width="100">Ngày tạo</th>

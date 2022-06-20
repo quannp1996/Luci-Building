@@ -11,7 +11,7 @@ class EMagazine extends Model
     protected $table = 'emagazines';
     protected $descModel = 'all_desc';
     protected $fillable = [
-        'module', 'sort_order', 'status', 'title'
+        'module', 'sort_order', 'status', 'title', 'color'
     ];
 
     protected $attributes = [

@@ -36,12 +36,13 @@
             }
 
             #section_2000709245 .section-bg-overlay {
-                background-color: rgba(0, 155, 113, 0.77);
+                background-color: {{ @$landingPage->color }};
+                opacity: 0.77;
             }
 
-            #section_2000709245 .section-bg.bg-loaded {
+            /* #section_2000709245 .section-bg.bg-loaded {
                 background-image: url(../../wp-content/uploads/2019/11/daniel-dinuzzo.jpg);
-            }
+            } */
         </style>
     </section>
 @endif

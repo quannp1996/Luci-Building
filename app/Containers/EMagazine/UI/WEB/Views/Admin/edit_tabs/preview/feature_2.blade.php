@@ -60,8 +60,8 @@
                         <div class="input-group">
                             <input 
                                 type="hidden" 
-                                v-model="module.image_gb"
-                                v-bind:name="['module['+ module.key +'][image_gb]']" 
+                                v-model="module.image_bg"
+                                v-bind:name="['module['+ module.key +'][image_bg]']" 
                             />
                             <input 
                                 type="file" class="form-control" style="display: none"
@@ -71,7 +71,7 @@
                                 @change="chageImage(module, 'image_bgLink' ,$event)" 
                             />
                             <img class="pointer" v-bind:src="module.image_bgLink" style="width: 100px"
-                                @click="triggerFile(module, 'image_bgLink')" v-if="module.image_bg" />
+                                @click="triggerFile(module, 'image_bgLink')" v-if="module.image_bgLink" />
                         </div>
                     </div>
                     <div class="form-group">

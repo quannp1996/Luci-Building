@@ -41,13 +41,13 @@
                         </div>
                         <div class="card-body" style="min-height: 400px">
                             <ul class="list-group">
-                                <li class="list-group-item item" @click="addModule('banner')" id="item1">BANNER</li>
-                                <li class="list-group-item item" @click="addModule('benifit')" id="item1"> LỢI ÍCH </li>
-                                <li class="list-group-item item" @click="addModule('partner')" id="item2">ĐỐI TÁC</li>
-                                <li class="list-group-item item" @click="addModule('feature')" id="item2">TÍNH NĂNG BAN QUẢN LÍ</li>
-                                <li class="list-group-item item" @click="addModule('feature_2')" id="item2">TÍNH NĂNG CƯ DÂN</li>
-                                <li class="list-group-item item" @click="addModule('why')" id="item2">TẠI SAO NÊN CHỌN CHÚNG TÔI</li>
-                                <li class="list-group-item item" @click="addModule('app')" id="item2">APP QUẢNG CÁO</li>
+                                <li class="list-group-item item" style="cursor: pointer" @click="addModule('banner')" id="item1">BANNER</li>
+                                <li class="list-group-item item" style="cursor: pointer" @click="addModule('benifit')" id="item1"> LỢI ÍCH </li>
+                                <li class="list-group-item item" style="cursor: pointer" @click="addModule('partner')" id="item2">ĐỐI TÁC</li>
+                                <li class="list-group-item item" style="cursor: pointer" @click="addModule('feature')" id="item2">TÍNH NĂNG BAN QUẢN LÍ</li>
+                                <li class="list-group-item item" style="cursor: pointer" @click="addModule('feature_2')" id="item2">TÍNH NĂNG CƯ DÂN</li>
+                                <li class="list-group-item item" style="cursor: pointer" @click="addModule('why')" id="item2">TẠI SAO NÊN CHỌN CHÚNG TÔI</li>
+                                <li class="list-group-item item" style="cursor: pointer" @click="addModule('app')" id="item2">APP QUẢNG CÁO</li>
                             </ul>
                         </div>
                     </div>

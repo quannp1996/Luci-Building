@@ -14,7 +14,7 @@ class CreateEMagazineAction extends Action
     {
         try{
             $data = Arr::only($emagazineData, [
-                'module', 'sort_order', 'status',
+                'module', 'sort_order', 'status', 'color'
             ]);
             if(!empty($data['module']) && is_array($data['module'])) $data['module'] = json_encode($data['module'], JSON_HEX_TAG);
             $emagazine = app(CreateEMagazineTask::class)->run($data);

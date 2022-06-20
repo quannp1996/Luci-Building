@@ -21,16 +21,14 @@ use App\Containers\EMagazine\UI\WEB\Requests\Admin\ReplicateEMagazineRequest;
 use App\Containers\EMagazine\UI\WEB\Requests\Admin\StoreEMagazineRequest;
 use App\Containers\EMagazine\UI\WEB\Requests\Admin\UpdateEMagazineRequest;
 use App\Ship\core\Traits\HelpersTraits\ApiResTrait;
-use App\Ship\Transporters\DataTransporter;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\DB;
 
 class Controller extends AdminController
 {
     use ApiResTrait;
     public function __construct()
     {
-        $this->title = 'Emagazine';
+        $this->title = 'Static pages';
         parent::__construct();
     }
 
