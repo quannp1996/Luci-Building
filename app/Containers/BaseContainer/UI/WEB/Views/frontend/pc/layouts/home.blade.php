@@ -20,25 +20,18 @@
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:locale:alternate" content="en_GB" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Luci Building - LUCI" />
+    <meta property="og:title" content="{{ @$settings['seo']['meta_title'] }}" />
     <meta property="og:description"
-        content="" />
+        content="{{ @$settings['seo']['meta_description'] }}" />
     <meta property="og:site_name" content="{{ @$settings['website']['site_name'] }}" />
-    <meta property="og:image" content="../../wp-content/uploads/2019/11/building_PNG90.png" />
+    <meta property="og:image" content="{{ ImageURL::getImageUrl(@$settings['website']['seo_image'], 'setting', 'original') }}" />
     <meta property="og:image:width" content="386" />
     <meta property="og:image:height" content="284" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:description"
-        content="Phần mềm Quản lý khu đô thị thông minh Với tốc độ đô thị hóa như hiện nay, việc quản lý các tòa nhà, khu đô thị trở thành một bài toán khó khăn đối với Ban quản lý các tòa nhà cũng như chủ đầu tư bất động sản. Sự hỗ trợ từ phần mềm Quản lý khu đô thị thông minh Luci Building sẽ giúp giải quyết được những bài toán khó trên một cách tối ưu và hiệu quả nhất." />
-    <meta name="twitter:title" content="Luci Building - LUCI" />
-    <meta name="twitter:image" content="../../wp-content/uploads/2019/11/building_PNG90.png" />
-    <link rel="dns-prefetch" href="http://use.fontawesome.com/" />
-    <link rel="dns-prefetch" href="http://fonts.googleapis.com/" />
-    <link rel="alternate" type="application/rss+xml" title="Dòng thông tin LUCI &raquo;" href="https://luci.vn/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Dòng phản hồi LUCI &raquo;"
-        href="https://luci.vn/comments/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="LUCI &raquo; Luci Building Dòng phản hồi"
-        href="feed/index.html" />
+        content="{{ @$settings['seo']['meta_description'] }}" />
+    <meta name="twitter:title" content="{{ @$settings['seo']['meta_title'] }}" />
+    <meta name="twitter:image" content="{{ ImageURL::getImageUrl(@$data['website']['seo_image'], 'setting', 'original') }}" />
     <style type="text/css">
         img.wp-smiley,
         img.emoji {

@@ -28,7 +28,10 @@
                     <a class="nav-link" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
                        aria-expanded="false"><i class="icon-phone"></i> Liên hệ</a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#seo" role="tab" aria-controls="seo"
+                       aria-expanded="false"><i class="icon-phone"></i> SEO</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#intergrate" role="tab" aria-controls="intergrate"
                        aria-expanded="false"><i class="icon-settings"></i>Tích hợp</a>
@@ -43,6 +46,8 @@
                 @include('settings::admin.settings.components.website')
 
                 @include('settings::admin.settings.components.contact')
+                
+                @include('settings::admin.settings.components.seo')
 
                 @include('settings::admin.settings.components.intergrated')
 

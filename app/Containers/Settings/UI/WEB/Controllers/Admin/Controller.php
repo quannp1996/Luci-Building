@@ -66,6 +66,13 @@ class Controller extends AdminController
                 }
             }
 
+            if (isset($request->website['seo_image'])) {
+                $image = Apiato::call('File@UploadImageAction', [$request, 'website.seo_image', 'website-seo-img-', StringLib::getClassNameFromString(Setting::class)]);
+                if (!$image['error']) {
+                    $website->seo_image = $image['fileName'];
+                }
+            }
+
 
             $website->mobile_active = isset($request->website['mobile_active']) ? 1 : 0;
             $website->down_for_constructions = isset($request->website['down_for_constructions']) ? 1 : 0;
