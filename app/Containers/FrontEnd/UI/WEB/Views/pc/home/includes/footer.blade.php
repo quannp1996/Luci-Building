@@ -141,16 +141,6 @@
                         @if (!empty($settings['other']['gg_map_sm']))
                             {!! $settings['other']['gg_map_sm'] !!}
                         @endif
-                        {{-- <iframe style="border: 0;" src="about:blank" width="600" height="250"
-                            frameborder="0" allowfullscreen="allowfullscreen"
-                            data-rocket-lazyload="fitvidscompatible"
-                            data-lazy-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.978665904184!2d105.7999730154075!3d20.993492286017542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acbe8bfa4e5b%3A0x1a467b0c80d846da!2zWmVuVG93ZXIgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1578049657179!5m2!1svi!2s"></iframe>
-                        <noscript>
-                            <iframe style="border: 0;"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.978665904184!2d105.7999730154075!3d20.993492286017542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acbe8bfa4e5b%3A0x1a467b0c80d846da!2zWmVuVG93ZXIgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1578049657179!5m2!1svi!2s"
-                                width="600" height="250" frameborder="0"
-                                allowfullscreen="allowfullscreen"></iframe>
-                        </noscript> --}}
                     </div>
                 </div>
                 <style scope="scope"></style>

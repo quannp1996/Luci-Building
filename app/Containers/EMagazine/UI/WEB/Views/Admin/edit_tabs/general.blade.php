@@ -20,8 +20,8 @@
                                 <div class="form-group">
                                     <label for="title">Đường dẫn</label>
                                     <div class="input-group">
-                                        <a href="{{ config('app.url').route('web.emagazine.detail', ['id' => $data['id'], 'slug' => !empty($data['title']) ? \StringLib::slug($data['title']) : 'emagaizne'], false) }}" target="_blank">
-                                            {{ config('app.url').route('web.emagazine.detail', ['id' => $data['id'], 'slug' => !empty($data['title']) ? \StringLib::slug($data['title']) : 'emagaizne'], false) }}
+                                        <a href="{{ config('app.url').route('web.emagazine.detail', ['slug' => !empty($data['slug']) ? $data['slug'] : \StringLib::slug($data['title'])], false) }}" target="_blank">
+                                            {{ config('app.url').route('web.emagazine.detail', ['slug' => !empty($data['slug']) ? $data['slug'] : \StringLib::slug($data['title'])], false) }}
                                         </a>
                                     </div>
                                 </div>

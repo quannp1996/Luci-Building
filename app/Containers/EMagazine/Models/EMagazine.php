@@ -11,7 +11,7 @@ class EMagazine extends Model
     protected $table = 'emagazines';
     protected $descModel = 'all_desc';
     protected $fillable = [
-        'module', 'sort_order', 'status', 'title', 'color'
+        'module', 'sort_order', 'status', 'title', 'color', 'slug'
     ];
 
     protected $attributes = [
@@ -113,8 +113,7 @@ class EMagazine extends Model
     public function getLinkDetail($absolute = false)
     {
         return route('web.emagazine.detail', [
-            'slug' => Str::slug($this->desc->title),
-            'id' => $this->id
+            'slug' => $this->slug  ?? Str::slug($this->title),
         ] , $absolute);
     }
 

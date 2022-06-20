@@ -3,11 +3,11 @@
 namespace App\Containers\EMagazine\Tasks;
 
 use App\Containers\EMagazine\Data\Repositories\EMagazineRepository;
-use App\Ship\Exceptions\CreateResourceFailedException;
+use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
 
-class CreateEMagazineTask extends Task
+class FindEMagazineBySlugTask extends Task
 {
 
     protected $repository;
@@ -17,13 +17,19 @@ class CreateEMagazineTask extends Task
         $this->repository = $repository;
     }
 
-    public function run(array $data)
+    public function run(string $slug)
     {
         try {
-            return $this->repository->create($data);
+            return $this->repository->where('slug', $slug)->first();
         }
         catch (Exception $exception) {
-            throw new CreateResourceFailedException();
+            throw new NotFoundException();
         }
+    }
+
+    public function withData(array $withData = [])
+    {
+        if(!empty($withData)) $this->repository->with($withData);
+        return $this;
     }
 }

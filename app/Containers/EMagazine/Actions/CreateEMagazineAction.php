@@ -2,6 +2,8 @@
 
 namespace App\Containers\EMagazine\Actions;
 
+use Apiato\Core\Foundation\StringLib;
+use App\Containers\EMagazine\Models\EMagazine;
 use App\Ship\Parents\Actions\Action;
 use App\Containers\EMagazine\Tasks\CreateEMagazineTask;
 use App\Containers\EMagazine\Tasks\SyncEMagazineDescriptionTask;
@@ -14,8 +16,11 @@ class CreateEMagazineAction extends Action
     {
         try{
             $data = Arr::only($emagazineData, [
-                'module', 'sort_order', 'status', 'color'
+                'module', 'sort_order', 'status', 'color', 'title'
             ]);
+            $slug = StringLib::slug($data['title']);
+            $ob = EMagazine::select('*')->where('slug', $slug)->get();
+            $data['slug'] = $ob->isNotEmpty() ? StringLib::slug($data['title']).'-'.$ob->count() :  StringLib::slug($data['title']);
             if(!empty($data['module']) && is_array($data['module'])) $data['module'] = json_encode($data['module'], JSON_HEX_TAG);
             $emagazine = app(CreateEMagazineTask::class)->run($data);
             return $emagazine;
