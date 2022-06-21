@@ -71,6 +71,8 @@ const templateData = {
         image_bg: `${ENV.PUBLIC_URL}/upload/default.png`,
         image_bgLink: `${ENV.PUBLIC_URL}/upload/default.png`,
         display: 1,
+        linkAndroid: '',
+        linkIOS: '',
         color: ''
     }
 }

@@ -83,60 +83,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="col medium-2 small-6 large-2">
+                @php
+                    $parrentMenus = $menus->filter(function($item) {
+                        return $item->pid == 0;
+                    })
+                @endphp
+                @foreach ($parrentMenus as $item)
+                <div class="col medium-3 small-6 large-2">
                     <div class="col-inner">
                         <h4>
-                            <span><strong>Sitemap</strong></span>
+                            <span><strong>{{ $item->desc_lang->name }}</strong></span>
                         </h4>
-                        <div class="menu-sitemap-container">
-                            <ul id="menu-sitemap" class="menu">
-                                <li id="menu-item-318"
-                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
-                                    <a href="https://luci.vn/gioi-thieu/" data-wpel-link="internal">Giới thiệu</a>
-                                </li>
-                                <li id="menu-item-320"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-320">
-                                    <a href="https://luci.vn/tu-van-giai-phap/" data-wpel-link="internal">Tư vấn
-                                        giải pháp</a>
-                                </li>
-                                <li id="menu-item-321"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-321">
-                                    <a href="https://luci.vn/tin-tuc/" data-wpel-link="internal">Tin tức</a>
-                                </li>
-                                <li id="menu-item-322"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-322">
-                                    <a href="https://luci.vn/tuyen-dung/" data-wpel-link="internal">Tuyển dụng</a>
-                                </li>
-                                <li id="menu-item-323"
-                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323">
-                                    <a href="https://luci.vn/lien-he/" data-wpel-link="internal">Liên hệ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        @if ($subMenus = $menus->filter(function($sub) use($item) {
+                            return $sub->pid == $item->id;
+                        }))
+                            <div class="menu-sitemap-container">
+                                <ul id="menu-sitemap" class="menu">
+                                    @foreach ($subMenus as $subMenu)
+                                        <li id="menu-item-318"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
+                                            <a href="{{ $subMenu->extra_link }}" data-wpel-link="internal">{{ $subMenu->desc_lang->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 </div>
-                <div class="col medium-3 small-6 large-3">
-                    <div class="col-inner">
-                        <h4>
-                            <span><strong>Chính sách</strong></span>
-                        </h4>
-                        <div class="menu-chinh-sach-container">
-                            <ul id="menu-chinh-sach" class="menu">
-                                <li id="menu-item-973"
-                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-973">
-                                    <a href="https://luci.vn/chinh-sach-bao-mat-thong-tin/"
-                                        data-wpel-link="internal">Chính sách bảo mật thông tin</a>
-                                </li>
-                                <li id="menu-item-971"
-                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-971">
-                                    <a href="https://luci.vn/hinh-thuc-thanh-toan/" data-wpel-link="internal">Hình
-                                        thức thanh toán</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col medium-3 small-12 large-3">
+                @endforeach
+                <div class="col medium-2 small-12 large-3">
                     <div class="col-inner" style="max-height: 250">
                         @if (!empty($settings['other']['gg_map_sm']))
                             {!! $settings['other']['gg_map_sm'] !!}

@@ -37,7 +37,7 @@
 
             #section_2000709245 .section-bg-overlay {
                 background-color: {{ @$landingPage->color }};
-                opacity: 0.77;
+                opacity: {{ @$landingPage->transparent ?? '0.77' }};
             }
 
             /* #section_2000709245 .section-bg.bg-loaded {

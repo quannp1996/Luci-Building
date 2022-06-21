@@ -41,6 +41,18 @@
                             <textarea v-bind:name="['module['+ module.key +'][title]']" v-model="module.title" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>Link Android</label>
+                        <div class="input-group">
+                            <input type="text" v-bind:name="['module['+ module.key +'][linkAndroid]']" class="form-control" v-model="module.linkAndroid">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Link IOS</label>
+                        <div class="input-group">
+                            <input type="text" v-bind:name="['module['+ module.key +'][linkIOS]']" class="form-control" v-model="module.linkIOS">
+                        </div>
+                    </div>
                     <div>
                         <p>Ảnh Chính </p>
                         <input type="hidden" 

@@ -13,7 +13,7 @@ class UpdateEMagazineAction extends Action
     public function run(array $emagazineData = [], $id)
     {
         $data = Arr::only($emagazineData, [
-            'module', 'sort_order', 'status', 'title', 'color'
+            'module', 'sort_order', 'status', 'title', 'color', 'transparent'
         ]);
         $slug = StringLib::slug($data['title']);
         $ob = EMagazine::select('*')->where('slug', $slug)->get();

@@ -67,6 +67,7 @@
             }
             .ss-chi-tiet-bg:before{
                 background-color: {{ @$landingPage->color }};
+                opacity: {{ @$landingPage->transparent ?? '0.77' }};
             }
             .ss-chi-tiet-bg::after{
                 background-color: {{ @$landingPage->color }};

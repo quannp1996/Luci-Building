@@ -2,12 +2,10 @@
 
 namespace App\Containers\FrontEnd\UI\WEB\Controllers\Desktop\Home;
 
-use App\Containers\BaseContainer\Enums\BaseEnum;
-use App\Containers\BaseContainer\UI\WEB\Controllers\BaseFrontEndController;
-use App\Containers\EMagazine\Actions\FindEMagazineByIdAction;
-use App\Containers\EMagazine\Actions\FindEMagazineBySlugAction;
 use App\Containers\EMagazine\Actions\GetAllEMagazinesAction;
+use App\Containers\EMagazine\Actions\FindEMagazineBySlugAction;
 use App\Containers\FrontEnd\UI\WEB\Requests\FindEmagazineRequest;
+use App\Containers\BaseContainer\UI\WEB\Controllers\BaseFrontEndController;
 
 class Controller extends BaseFrontEndController
 {

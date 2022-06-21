@@ -16,7 +16,7 @@ class CreateEMagazineAction extends Action
     {
         try{
             $data = Arr::only($emagazineData, [
-                'module', 'sort_order', 'status', 'color', 'title'
+                'module', 'sort_order', 'status', 'color', 'title', 'transparent'
             ]);
             $slug = StringLib::slug($data['title']);
             $ob = EMagazine::select('*')->where('slug', $slug)->get();
