@@ -7,10 +7,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="profile" href="https://gmpg.org/xfn/11" />
-    <link rel="pingback" href="https://luci.vn/xmlrpc.php" />
     <meta http-equiv="content-language" content="vi" />
-    <link rel="alternate" href="index.html" hreflang="vi" />
     <title>{{ @$settings['website']['site_name'] }}</title>
     <link rel="stylesheet" href="{{ asset('template/wp-content/cache/min/1/d920948c02523764f44b02b41385455c.css') }}"
         data-minify="1" />
@@ -170,7 +167,7 @@
 
         gtag("config", "UA-170799243-1");
     </script>
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         (function(m, e, t, r, i, k, a) {
             m[i] =
                 m[i] ||
@@ -189,7 +186,7 @@
             webvisor: true,
             ecommerce: "dataLayer",
         });
-    </script>
+    </script> --}}
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/69065527" style="position: absolute; left: -9999px;"
                 alt="" /></div>
@@ -219,7 +216,7 @@
             opacity: 1;
         }
     </style>
-    <script>
+    {{-- <script>
         !(function(f, b, e, v, n, t, s) {
             if (f.fbq) return;
             n = f.fbq = function() {
@@ -238,7 +235,7 @@
         })(window, document, "script", "../../../connect.facebook.net/en_US/fbevents.js");
         fbq("init", "2181255115516857");
         fbq("track", "PageView");
-    </script>
+    </script> --}}
     <noscript><img height="1" width="1" style="display: none;"
             src="https://www.facebook.com/tr?id=2181255115516857&amp;ev=PageView&amp;noscript=1" /></noscript>
     <noscript>
@@ -248,10 +245,6 @@
             }
         </style>
     </noscript>
-    <link rel="icon" href="../../wp-content/uploads/2019/11/logoluci-100x100.png" sizes="32x32" />
-    <link rel="icon" href="../../wp-content/uploads/2019/11/logoluci.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="../../wp-content/uploads/2019/11/logoluci.png" />
-    <meta name="msapplication-TileImage" content="https://luci.vn/wp-content/uploads/2019/11/logoluci.png" />
 </head>
 
 <body class="home">
