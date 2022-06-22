@@ -45,8 +45,11 @@
                                             <div class="col-inner text-center">
                                                 <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_326542146">
                                                     <div class="img-inner dark">
+                                                        <a href="" target="_blank">
+
+                                                        </a>
                                                         <img width="198" height="199"
-                                                            src="../../wp-content/uploads/2019/11/app-QR.png"
+                                                            src="{{ @$module['image_bgLink'] }}"
                                                             class="attachment-large size-large" alt=""
                                                             loading="lazy"
                                                             srcset="https://luci.vn/wp-content/uploads/2019/11/app-QR.png 198w, https://luci.vn/wp-content/uploads/2019/11/app-QR-100x100.png 100w"
@@ -61,11 +64,11 @@
                                             </div>
                                         </div>
                                         <div
-                                            class="col https://play.google.com/store/apps/details?id=com.lucibuilding medium-7 small-12 large-7">
+                                            class="col medium-7 small-12 large-7">
                                             <div class="col-inner">
                                                 <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_264206931">
                                                     <a class=""
-                                                        href="https://play.google.com/store/apps/details?id=com.lucibuilding">
+                                                        href="{{ @$module['linkAndroid'] }}">
                                                         <div class="img-inner dark">
                                                             <img width="300" height="90"
                                                                 src="{{ asset('template/wp-content/uploads/2019/11/Google-Play-App-Store.png') }}"
@@ -81,7 +84,7 @@
                                                 </div>
                                                 <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_82331100">
                                                     <a class=""
-                                                        href="https://apps.apple.com/vn/app/luci-building/id1524294440?l=vi">
+                                                        href="{{ @$module['linkIOS'] }}">
                                                         <div class="img-inner dark">
                                                             <img width="300" height="90"
                                                                 src="{{ asset('template/wp-content/uploads/2019/11/Google-Play.png') }}"

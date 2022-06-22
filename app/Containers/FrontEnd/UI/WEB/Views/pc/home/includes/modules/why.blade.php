@@ -75,7 +75,7 @@
 
             #section_1054442960 .section-bg-overlay {
                 background-color: {{ @$landingPage->color }};
-                opacity: 0.77;
+                opacity: {{ @$landingPage->transparent ?? '0.77' }};
             }
         </style>
     </section>

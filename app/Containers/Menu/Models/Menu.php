@@ -113,4 +113,16 @@ class Menu extends Model
         }
         return '';
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::creating(function($model) {
+            $model->type = (int) $model->type;
+        });
+        self::updated(function($model) {
+            $model->type = (int) $model->type;
+        });
+    }
 } // End class

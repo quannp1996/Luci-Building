@@ -82,7 +82,7 @@
 
             #section_1888303823 .section-bg-overlay {
                 background-color: {{ @$landingPage->color }};
-                opacity: 0.77;
+                opacity: {{ @$landingPage->transparent ?? '0.77' }};
             }
 
             #section_1888303823 .section-bg.bg-loaded {

@@ -58,6 +58,13 @@
                                     name="color" id="color"
                                     value="{{ old('color', @$data->color ?? '') }}">
                             </div>
+                            <div class="form-group">
+                                <label class="control-label" for="transparent">Transparent </label>
+                                <input type="text"
+                                    class="form-control {{ $errors->has('transparent') ? 'is-invalid' : '' }}"
+                                    name="transparent" id="transparent"
+                                    value="{{ old('transparent', @$data->transparent ?? '') }}">
+                            </div>
                         </div>
                     </div>
                 </div>

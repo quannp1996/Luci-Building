@@ -39,7 +39,6 @@ class BaseFrontEndController extends WebController
         $this->currentLang = app(GetCurrentLangAction::class)->run();
 
         $this->frontBreadcrumb(__('site.trangchu'), route('web.home.index'));
-
         $menus = app(GetMenusByTypeAction::class)->run(
             [
                 config('menu-container.type_key.top_website'),
@@ -47,7 +46,7 @@ class BaseFrontEndController extends WebController
             ],
             false,
             $this->currentLang,
-            [['status', '=', config('menu-container.status.visible')]]
+            [['status', '=', "2"]]
         );
         $this->settings = app(GetAllSettingsAction::class)->run('Array', true, $this->currentLang);
 
