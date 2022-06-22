@@ -58,8 +58,8 @@ class MenuRepository extends Repository
                 return $query->orderBy('sort_order', 'ASC');
             })
             ->findWhere([
-                ['type', '=', (string) $type],
-                ['status', '=', (string) config('menu-container.status.visible')]
+                ['type', '=',  $type],
+                ['status', '=',  config('menu-container.status.visible')]
             ]);
         $menusArray = $menus->toArray();
         $treeData = $this->buildTree($menusArray);

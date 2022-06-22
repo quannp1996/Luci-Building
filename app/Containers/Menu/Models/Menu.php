@@ -120,9 +120,11 @@ class Menu extends Model
 
         self::creating(function($model) {
             $model->type = (int) $model->type;
+            $model->status = (int) $model->status;
         });
         self::updated(function($model) {
             $model->type = (int) $model->type;
+            $model->status = (int) $model->status;
         });
     }
 } // End class
