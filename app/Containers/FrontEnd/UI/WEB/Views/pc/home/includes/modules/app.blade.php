@@ -51,8 +51,6 @@
                                                         <img width="198" height="199"
                                                             src="{{ @$module['image_bgLink'] }}"
                                                             class="attachment-large size-large" alt=""
-                                                            loading="lazy"
-                                                            srcset="https://luci.vn/wp-content/uploads/2019/11/app-QR.png 198w, https://luci.vn/wp-content/uploads/2019/11/app-QR-100x100.png 100w"
                                                             sizes="(max-width: 198px) 100vw, 198px" />
                                                     </div>
                                                     <style scope="scope">

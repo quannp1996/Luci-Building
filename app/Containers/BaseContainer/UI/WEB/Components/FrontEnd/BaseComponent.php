@@ -12,8 +12,6 @@
 namespace App\Containers\BaseContainer\UI\WEB\Components\FrontEnd;
 
 use Apiato\Core\Foundation\Facades\Apiato;
-use Apiato\Core\Foundation\Facades\FunctionLib;
-use App\Containers\Settings\Actions\GetAllSettingsAction;
 use App\Ship\Parents\Components\Component;
 
 class BaseComponent extends Component
