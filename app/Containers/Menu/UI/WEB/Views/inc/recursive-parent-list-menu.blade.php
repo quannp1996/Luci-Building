@@ -1,6 +1,6 @@
 <li class='dd-item' data-id='{{ $menuId }}'>
   <div class='dd3-content' style='min-width: 250px'>
-      <span>{{ $menuId }}. {{ $name }}</span>
+      <span>{{ $name }}</span>
 
       <span class="pull-right">
           <a href="{{ route('admin_'.$key.'_edit', $menuId) }}" title="Sửa"><i class="fa fa-pencil"></i></a>
