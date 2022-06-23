@@ -27,7 +27,8 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-                                <a href="tel:{{ @$settings['contact']['hotline'] }}" data-wpel-link="internal">Phone:
+                                <a href="tel:{{ @$settings['contact']['hotline'] }}" data-wpel-link="internal">
+                                    Phone:
                                     <b>{{ @$settings['contact']['hotline'] }}</b></a>
                             </div>
                         </div>

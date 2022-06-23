@@ -11,6 +11,7 @@
     <title>{{ @$settings['website']['site_name'] }}</title>
     <link rel="stylesheet" href="{{ asset('template/wp-content/cache/min/1/d920948c02523764f44b02b41385455c.css') }}"
         data-minify="1" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css?ver=5.6.8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="index.html" />
@@ -236,6 +237,7 @@
         fbq("init", "2181255115516857");
         fbq("track", "PageView");
     </script> --}}
+    
     <noscript><img height="1" width="1" style="display: none;"
             src="https://www.facebook.com/tr?id=2181255115516857&amp;ev=PageView&amp;noscript=1" /></noscript>
     <noscript>

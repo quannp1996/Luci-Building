@@ -1,6 +1,5 @@
 @if (!empty($module))
     <section class="section ss-chi-tiet-bg" id="section_952772915">
-        <div class="bg section-bg fill bg-fill bg-loaded"></div>
         <div class="section-content relative">
             <div class="row" id="row-1005566459">
                 <div class="col medium-6 small-12 large-6">
@@ -61,8 +60,6 @@
                 padding-top: 60px;
             }
             .ss-chi-tiet-bg{
-                /* background-color: {{ @$landingPage->color }};
-                opacity: 0.77; */
                 background-image: url('{{ @$module['image_bgLink'] }}')
             }
             .ss-chi-tiet-bg:before{
@@ -70,6 +67,12 @@
                 opacity: {{ @$landingPage->transparent ?? '0.77' }};
             }
             .ss-chi-tiet-bg::after{
+                content: "";
+                width: 50vw;
+                height: 45vw;
+                position: absolute;
+                right: 0;
+                opacity: {{ @$landingPage->transparent ?? '0.77' }};
                 background-color: {{ @$landingPage->color }};
             }
         </style>
