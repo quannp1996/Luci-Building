@@ -61,7 +61,12 @@
                 $('.wpcf7-not-valid-tip').remove();
                 $('#contact_form .medium-flex-wrap').addClass('processing');
                 $.post('{{ route('api_contact_create_contact') }}', $('#contact_form').serialize()).then(function(json){
-                    $('#contact_form input').val('');
+                    Swal.fire({
+                        type: 'success',
+                        text: json.message
+                    }).then(json => {
+                        $('#contact_form input').val('');
+                    });
                 }).fail(function(json){
                     const errors = json.responseJSON.errors;
                     Object.keys(errors).forEach(item => {

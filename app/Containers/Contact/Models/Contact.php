@@ -7,11 +7,11 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class Contact extends Model
 {
     protected $fillable = [
-        'shop_name', 'email', 'phone'
+        'shop_name', 'email', 'phone', 'message'
     ];
 
     protected $attributes = [
-
+        
     ];
 
     protected $hidden = [

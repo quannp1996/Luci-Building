@@ -11,6 +11,7 @@ use App\Containers\Contact\UI\API\Transformers\ContactTransformer;
 use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\BaseContainer\UI\WEB\Controllers\BaseApiFrontController;
 use App\Containers\Contact\Mail\ContactMail;
+use Exception;
 use Illuminate\Support\Facades\Mail;
 
 /**
@@ -28,7 +29,10 @@ class Controller extends BaseApiFrontController
     {
         $ccEmail = (!empty($this->settings['contact']['cc_email'])) ? explode(',',  $this->settings['contact']['cc_email']) : [];
         $contact = Apiato::call('Contact@CreateContactAction', [$request]);
-        Mail::to($this->settings['contact']['email'])->cc($ccEmail)->send( new ContactMail($contact));
+        try{
+            Mail::to($this->settings['contact']['email'])->cc($ccEmail)->send( new ContactMail($contact));
+        }catch(Exception $e){
+        }
         return $this->sendResponse($contact, 'Thông tin đã được gửi tới ban quản trị');
     }
 

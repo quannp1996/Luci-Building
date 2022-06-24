@@ -13,7 +13,7 @@ class CreateContactAction extends Action
     public function run(Request $request)
     {
         $data = $request->sanitizeInput([
-            'shop_name', 'email', 'phone'
+            'shop_name', 'email', 'phone', 'message'
         ]);
         $contact = Apiato::call('Contact@CreateContactTask', [$data]);
         $dataFields = $request->field;
