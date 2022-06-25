@@ -88,7 +88,7 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="title">Logo</label>
+                <label for="title">Logo (100px x 70px)</label>
                 <input type="file" id="logo" name="website[logo]" class="dropify form-control" data-show-remove="false" data-default-file="{{ ImageURL::getImageUrl(@$data['website']['logo'], 'setting', 'original') }}">
             </div>
         </div>
@@ -96,7 +96,7 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="title">Logo Footer</label>
+                <label for="title">Logo Footer (100px x 70px)</label>
                 <input type="file" id="logo_footer" name="website[logo_footer]" class="dropify form-control" data-show-remove="false" data-default-file="{{ ImageURL::getImageUrl(@$data['website']['logo_footer'], 'setting', 'original') }}">
             </div>
         </div>

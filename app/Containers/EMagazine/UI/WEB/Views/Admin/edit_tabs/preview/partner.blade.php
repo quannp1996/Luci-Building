@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Ảnh Nền</label>
+                        <label>Ảnh Nền (1600px x 1300px)</label>
                         <div class="input-group">
                             <input type="hidden" 
                                 v-model="module.image_bg"

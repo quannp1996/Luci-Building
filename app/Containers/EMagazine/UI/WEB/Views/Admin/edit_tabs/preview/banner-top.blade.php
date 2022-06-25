@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div>
-                        <p>Ảnh nền</p>
+                        <p>Ảnh nền (1600px x 1300px)</p>
                         <input 
                             v-bind:name="['module['+ module.key +'][image]']"
                             @change="chageImage(module, 'imageLink' ,$event)" 
