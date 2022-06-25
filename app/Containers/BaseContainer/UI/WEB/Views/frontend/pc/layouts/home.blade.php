@@ -157,6 +157,8 @@
     </style>
     <script type="text/javascript" src="{{ asset('template/wp-includes/js/jquery/jquery.min9d52.js?ver=3.5.1') }}"
         id="jquery-core-js"></script>
+    <script type="text/javascript" src="{{ asset('js/sweetalert2.all.min.js') }}"
+        id="jquery-core-js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170799243-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -261,5 +263,4 @@
     <x-footer-component :menus="$menus"></x-footer-component>
 </body>
 @stack('js_bot_all')
-
 </html>
