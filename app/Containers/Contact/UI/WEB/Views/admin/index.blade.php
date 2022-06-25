@@ -119,20 +119,12 @@
                                                         {{ $item->phone }}
                                                     </div>
                                                 </div>
-                                                @foreach ($fields as $field)
-                                                    <div class="form-group row">
-                                                        <label for="staticEmail" class="col-sm-3 col-form-label">{{ $field->lable }}</label>
-                                                        <div class="col-sm-9">
-                                                            @if ($item->fields->filter( function($f) use($field) {
-                                                                return $f->field_id == $field->id;
-                                                            })->isNotEmpty())
-                                                                {{ $item->fields->filter( function($f) use($field) {
-                                                                    return $f->field_id == $field->id;
-                                                                })->first()->value }}
-                                                            @endif
-                                                        </div>
+                                                <div class="form-group row">
+                                                    <label for="staticEmail" class="col-sm-3 col-form-label">Tin nhắn</label>
+                                                    <div class="col-sm-9">
+                                                        {{ $item->message }}
                                                     </div>
-                                                @endforeach
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

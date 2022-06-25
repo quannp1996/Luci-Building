@@ -51,11 +51,7 @@
                     </ul>
                 </div>
                 <div class="flex-col show-for-medium flex-right">
-                    <ul class="mobile-nav nav nav-right ">
-                        <li class="nav-icon has-icon"> <a href="#" data-open="#main-menu" data-pos="left"
-                                data-bg="main-menu-overlay" data-color="" class="is-small" aria-label="Thực đơn"
-                                aria-controls="main-menu" aria-expanded="false"> <i class="icon-menu"></i> </a></li>
-                    </ul>
+                    
                 </div>
             </div>
         </div>

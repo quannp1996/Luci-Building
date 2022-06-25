@@ -18,6 +18,7 @@
                     padding-bottom: 30px;
                     min-height: 300px
                 }
+
                 #section_103927741 .section-bg.bg-loaded {
                     background-image: url(https://luci.vn/wp-content/uploads/2019/11/lien-he-bg.jpg)
                 }
@@ -34,7 +35,8 @@
                             <div class="title-content flex-col flex-right text-right medium-text-center">
                                 <div class="title-breadcrumbs pb-half pt-half">
                                     <nav class="woocommerce-breadcrumb breadcrumbs ">
-                                        <a href="https://luci.vn/" data-wpel-link="internal">Trang chủ</a> <span class="divider">/</span>
+                                        <a href="https://luci.vn/" data-wpel-link="internal">Trang chủ</a> <span
+                                            class="divider">/</span>
                                         Liên hệ
                                     </nav>
                                 </div>
@@ -84,10 +86,10 @@
                                 </div>
                                 <div class="icon-box-text last-reset">
                                     @if (!empty(@$settings['website']['address']))
-                                        <p><b>Trụ sở Hà Nội: {{ @$settings['website']['address'] }}</b></p>  
+                                        <p><b>Trụ sở Hà Nội: {{ @$settings['website']['address'] }}</b></p>
                                     @endif
                                     @if ($settings['website']['address_hcm'])
-                                        <p><b>Văn phòng Hồ Chí Minh: {{ @$settings['website']['address_hcm'] }}</b></p> 
+                                        <p><b>Văn phòng Hồ Chí Minh: {{ @$settings['website']['address_hcm'] }}</b></p>
                                     @endif
                                 </div>
                             </div>
@@ -143,9 +145,10 @@
                                         </div>
                                         <div class="col pb-0 large-12">
                                             <div class="col-inner">
-                                                <input type="button" id="submit_contact" style="background-color: #f15a29;border-radius: 0 8px;" value="Gửi đi"
-                                                    class="wpcf7-form-control wpcf7-submit button secondary"
-                                                >
+                                                <button type="button" id="submit_contact"
+                                                    style="background-color: #f15a29;border-radius: 0 8px;"
+                                                    class="wpcf7-form-control wpcf7-submit button secondary">Gửi
+                                                    đi</button>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +192,13 @@
                 $('#contact_form .medium-flex-wrap').addClass('processing');
                 $.post('{{ route('api_contact_create_contact') }}', $('#contact_form').serialize()).then(
                     function(json) {
-                        $('#contact_form input').val('');
+                        Swal.fire({
+                            type: 'success',
+                            text: json.message
+                        }).then(json => {
+                            $('#contact_form input').val('');
+                            $('#contact_form textarea').val('');
+                        });
                     }).fail(function(json) {
                     const errors = json.responseJSON.errors;
                     Object.keys(errors).forEach(item => {
