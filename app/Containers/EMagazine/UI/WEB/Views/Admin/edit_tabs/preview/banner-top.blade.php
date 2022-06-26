@@ -39,12 +39,6 @@
                             <textarea v-bind:name="['module['+ module.key +'][title]']" v-model="module.title" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
-                    {{-- <div class="form-group">
-                        <label>Màu nền</label>
-                        <div class="input-group">
-                            <input type="color" :name="['module['+ module.key +'][color]']" v-model="module.color" id="">
-                        </div>
-                    </div> --}}
                     <div class="form-group">
                         <label>Nội dung</label>
                         <div class="input-group">
@@ -54,6 +48,8 @@
                     </div>
                     <div>
                         <p>Ảnh nền (1600px x 1300px)</p>
+                        <input type="hidden" v-model="module.image"
+                            v-bind:name="['module['+ module.key +'][image]']" />
                         <input 
                             v-bind:name="['module['+ module.key +'][image]']"
                             @change="chageImage(module, 'imageLink' ,$event)" 
@@ -62,8 +58,7 @@
                             accept="image/png, image/jpeg, image/jpg" />
                         <img class="w-50 pointer" v-bind:src="module.imageLink"
                             @click="triggerFile(module, 'imageLink')" v-if="module.imageLink" />
-                        <input type="hidden" v-model="module.old.image"
-                            v-bind:name="['module['+ module.key +'][old][image]']" />
+                        
                     </div>
                 </div>
                 <div class="modal-footer">

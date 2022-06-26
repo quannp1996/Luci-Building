@@ -50,7 +50,6 @@
                         <div class="input-group">
                             <input type="hidden" v-model="module.image"
                                 v-bind:name="['module['+ module.key +'][image]']" />
-
                             <input 
                                 class="form-control" style="display: none"
                                 accept="image/png, image/jpeg, image/jpg" 
