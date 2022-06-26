@@ -49,7 +49,7 @@
                     <div class="col col1 medium-6 small-12 large-6">
                         <div class="col-inner">
                             <h3>Thông tin liên hệ</h3>
-                            <p><strong>Mọi thắc mắc vui lòng liên hệ với Luci để được tư vấn hỗ trợ tốt
+                            <p><strong>Mọi thắc mắc vui lòng liên hệ với {{ @$settings['website']['site_name'] }} để được tư vấn hỗ trợ tốt
                                     nhất.</strong></p>
                             <div class="icon-box icon-box-awesome featured-box icon-box-left text-left align-top">
                                 <div class="icon-box-img" style="width: 15px">
@@ -98,7 +98,7 @@
                     <div class="col medium-6 small-12 large-6">
                         <div class="col-inner">
                             <h3>Điền form tư vấn</h3>
-                            <p>Đăng ký thông tin ngay để nhận được sự hỗ trợ tận tình từ đội ngũ của Luci!</p>
+                            <p>Đăng ký thông tin ngay để nhận được sự hỗ trợ tận tình từ đội ngũ của {{ @$settings['website']['site_name'] }}!</p>
                             <div role="form" class="wpcf7" id="wpcf7-f606-p312-o1" lang="vi" dir="ltr">
                                 <form action="#" method="post" id="contact_form" class="wpcf7-form invalid"
                                     novalidate="novalidate">

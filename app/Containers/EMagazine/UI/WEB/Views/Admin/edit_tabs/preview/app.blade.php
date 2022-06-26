@@ -71,8 +71,8 @@
                     </div>
                     <div>
                         <p>Ảnh Phụ</p>
-                        <input type="hidden" v-model="module.old.image_bg"
-                            v-bind:name="['module['+ module.key +'][old][image_bg]']" />
+                        <input type="hidden" v-model="module.image_bg"
+                            v-bind:name="['module['+ module.key +'][image_bg]']" />
                         <input 
                             accept="image/png, image/jpeg, image/jpg" 
                             type="file" class="form-control" style="display: none"
